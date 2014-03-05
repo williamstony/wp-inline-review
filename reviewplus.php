@@ -4,7 +4,7 @@
     Plugin URI: http://www.nodewerx.com/quick-meta-review
     Description: Review engine for WordPress
     Author: Tony J Williams
-    Version: 0.5.0
+    Version: 0.6.0
     Author URI:
 
     TODO: Clean up code
