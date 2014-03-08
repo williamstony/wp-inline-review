@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a16a0d4-3fdd-461d-a153-3ca9c4764fd6" name="Default" comment="">
+    <list default="true" id="6a16a0d4-3fdd-461d-a153-3ca9c4764fd6" name="Default" comment="Adding correct quote formatting in text boxes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reviewplus.php" afterPath="$PROJECT_DIR$/reviewplus.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="reviewplus.iws" />
@@ -30,7 +29,7 @@
       <file leaf-file-name="nwxrviewstyle.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nwxrviewstyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="705">
+            <state line="13" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
               <folding />
             </state>
           </provider>
@@ -39,8 +38,11 @@
       <file leaf-file-name="reviewplus.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reviewplus.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="16" selection-start="195" selection-end="195" vertical-scroll-proportion="0.10663507" vertical-offset="0" max-vertical-offset="3540">
-              <folding />
+            <state line="179" column="34" selection-start="8695" selection-end="8695" vertical-scroll-proportion="4.760638" vertical-offset="0" max-vertical-offset="3795">
+              <folding>
+                <element signature="e#10#199#0" expanded="true" />
+                <element signature="e#3482#3515#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,10 +82,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="32" />
+    <option name="x" value="1" />
     <option name="y" value="22" />
-    <option name="width" value="1631" />
-    <option name="height" value="999" />
+    <option name="width" value="1273" />
+    <option name="height" value="719" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -111,7 +113,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -132,6 +133,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -158,10 +160,10 @@
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
       <method />
     </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="dev" session_id="PHPSTORM">
       <method />
     </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="dev" session_id="PHPSTORM">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/reviewplus.php">
@@ -209,6 +211,11 @@
       <created>1393768070853</created>
       <updated>1393768070853</updated>
     </task>
+    <task id="LOCAL-00001" summary="testing phpstorm">
+      <created>1394058537818</created>
+      <updated>1394058537818</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -232,28 +239,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="32" y="22" width="1631" height="999" extended-state="0" />
-    <editor active="false" />
+    <frame x="1" y="22" width="1273" height="719" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32855567" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24984267" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16110761" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16328189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39911798" sideWeight="0.49968535" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39911798" sideWeight="0.50031465" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -265,10 +272,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="testing phpstorm" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing phpstorm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -287,6 +296,23 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/nwxrviewstyle.css">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reviewplus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="16" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="3540">
+          <folding>
+            <element signature="e#10#199#0" expanded="true" />
+            <element signature="e#3482#3515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nwxrviewstyle.css">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
           <folding />
         </state>
@@ -295,7 +321,10 @@
     <entry file="file://$PROJECT_DIR$/reviewplus.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="16" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="3540">
-          <folding />
+          <folding>
+            <element signature="e#10#199#0" expanded="true" />
+            <element signature="e#3482#3515#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -309,7 +338,10 @@
     <entry file="file://$PROJECT_DIR$/reviewplus.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="58" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="3570">
-          <folding />
+          <folding>
+            <element signature="e#10#199#0" expanded="true" />
+            <element signature="e#3482#3515#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -323,7 +355,10 @@
     <entry file="file://$PROJECT_DIR$/reviewplus.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="20" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="3570">
-          <folding />
+          <folding>
+            <element signature="e#10#199#0" expanded="true" />
+            <element signature="e#3482#3515#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -337,7 +372,10 @@
     <entry file="file://$PROJECT_DIR$/reviewplus.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3150">
-          <folding />
+          <folding>
+            <element signature="e#10#199#0" expanded="true" />
+            <element signature="e#3482#3515#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -378,8 +416,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reviewplus.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="16" selection-start="195" selection-end="195" vertical-scroll-proportion="0.10663507" vertical-offset="0" max-vertical-offset="3540">
-          <folding />
+        <state line="179" column="34" selection-start="8695" selection-end="8695" vertical-scroll-proportion="4.760638" vertical-offset="0" max-vertical-offset="3795">
+          <folding>
+            <element signature="e#10#199#0" expanded="true" />
+            <element signature="e#3482#3515#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
