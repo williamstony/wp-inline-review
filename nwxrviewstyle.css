@@ -1,42 +1,35 @@
 .nwxbar {
-    height: 10px;
+	background-color: #af0;
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	-pie-background: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent) 0 0 / 5px 5px #ac0;
+	background-size: 10px 10px;
+	behavior: url(/pie/PIE.htc);
+	border: 1px solid #333;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    border: 1px solid #333;
-    background-size: 10px 10px;
-    background-color: #af0;
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-    -pie-background: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent) 0 0 / 5px 5px #ac0;
-    behavior: url(/pie/PIE.htc);
+	height: 10px;
 }
 
 .nwxrview {
-	border-top: 2px dotted #0f0;
-	border-right: 2px dotted #0f0;
-	padding: 10px;
-	margin: 5px;
 	height: 100%;
+	margin: 5px;
 	overflow: hidden;
+	padding: 10px;
 }
 
 .nwx-total-score {
-	text-align: center;
-	border-bottom: 3px solid #0f0;
-	border-left: 3px solid #0f0;
-	color: #0f0;
-	width: 25%;
 	display: block;
 	float: right;
 	min-height: 100px;
+	text-align: center;
+	width: 25%;
 }
 
 .nwx-rview-sum {
-	border-bottom: 3px solid #0f0;
-	border-right: 3px solid #0f0;
-	float: left;
 	display: block;
-	width: 73%;
+	float: left;
 	min-height: 100px;
+	width: 73%;
 }

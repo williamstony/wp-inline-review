@@ -1,12 +1,12 @@
-=== Game Dev Quotes ===
+=== Inline Review ===
 Contributors: Nodewerx
-Plugin Name: Inline Reviews
-Plugin URI: http://www.nodewerx.com/inline-reviews
+Plugin Name: Inline Review
+Plugin URI: http://www.nodewerx.com/inline-review
 Tags: reviews, review, products
 Author URI: http://www.nodewerx.com
 Author: Tony Williams
 Requires at least: 3.6.0
-Tested up to: 3.9
+Tested up to: 3.8.1
 Stable tag: 1.0
 Version: 1.0
 License: GPLv2 or later

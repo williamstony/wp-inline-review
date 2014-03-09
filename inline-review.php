@@ -1,10 +1,10 @@
 <?php
     /*
-    Plugin Name: Inline Reviews
-    Plugin URI: http://www.nodewerx.com/inline-reviews
+    Plugin Name: Inline Review
+    Plugin URI: http://www.nodewerx.com/inline-review
     Description: Review engine for WordPress
     Author: Tony J Williams
-    Version: 0.8.0
+    Version: 1.0
 
     */
 
