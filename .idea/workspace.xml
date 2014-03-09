@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a16a0d4-3fdd-461d-a153-3ca9c4764fd6" name="Default" comment="Renamed">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inline-review.php" afterPath="$PROJECT_DIR$/inline-review.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nwxrviewstyle.css" afterPath="$PROJECT_DIR$/nwxrviewstyle.css" />
+    <list default="true" id="6a16a0d4-3fdd-461d-a153-3ca9c4764fd6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -49,7 +47,7 @@
       <file leaf-file-name="readme.txt" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/readme.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="19" selection-start="256" selection-end="256" vertical-scroll-proportion="0.20477815" vertical-offset="0" max-vertical-offset="780">
+            <state line="35" column="10" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.8959044" vertical-offset="0" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
@@ -236,7 +234,11 @@
       <created>1394404612291</created>
       <updated>1394404612291</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="submitting for release">
+      <created>1394405688641</created>
+      <updated>1394405688641</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -301,7 +303,8 @@
     <MESSAGE value="Nearly release ready.&#10;Formatted text for output to be readable&#10;added brackets&#10;escaped everything that wasn't already." />
     <MESSAGE value="Changed height of summary box to a &quot;min-height&quot; to fix overflow problems" />
     <MESSAGE value="Renamed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed" />
+    <MESSAGE value="submitting for release" />
+    <option name="LAST_COMMIT_MESSAGE" value="submitting for release" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -425,7 +428,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="19" selection-start="256" selection-end="256" vertical-scroll-proportion="0.20477815" vertical-offset="0" max-vertical-offset="780">
+        <state line="35" column="10" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.8959044" vertical-offset="0" max-vertical-offset="780">
           <folding />
         </state>
       </provider>

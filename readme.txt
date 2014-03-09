@@ -32,8 +32,8 @@ The plugin settings are located under the main "Settings" menu in the WordPress 
 Initial Release
 
 == Screenshots ==
-1. screenshot.png
-2. screenshot2.png
+1. Output
+2. Options
 
 == Changelog ==
 
