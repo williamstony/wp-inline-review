@@ -121,7 +121,7 @@ function nwxrview_get_meta( $content ) {
     $nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true );
     $nwxrview_opts = get_option( 'nwxrview_options' );
     if ( is_array( $nwxrview_meta_data ) && is_single() ) {
-        $content .= '<div class="nwxrview" style="border-top: 2px ' . esc_html( $nwxrview_opts['border_style'] ) . ' #' . esc_html( $nwxrview_opts['highlight_color'] ) . '; border-right: 2px ' . esc_html( $nwxrview_opts['border_style'] ) . ' #' . esc_html( $nwxrview_opts['highlight_color'] ) . '; " itemprop="review" itemscope itemtype="http://schema.org/Review">
+        $content .= '<div class="nwxrview" style="border: 2px ' . esc_html( $nwxrview_opts['border_style'] ) . ' #' . esc_html( $nwxrview_opts['highlight_color'] ) . '; " itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
                         <span itemprop="name" style="display:none">' . esc_html( get_the_author_link() ) . '</span>
