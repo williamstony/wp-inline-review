@@ -15,7 +15,7 @@ register_activation_hook( __FILE__, 'nwxrview_defaults' );
 function nwxrview_defaults() {
     $tmp = get_option('nwxrview_options');
     if( !is_array( $tmp ) ) {
-        $arr = array( "text_color"=>"222", "highlight_color" => "0f0", "border_style" => "Dotted" );
+        $arr = array( "text_color"=>"222", "highlight_color" => "0f0", "border_style" => "Dotted", "header_bg" => "CCC" );
         update_option( 'nwxrview_options', $arr );
     }
 }
