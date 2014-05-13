@@ -1,14 +1,14 @@
 === Inline Review ===
 Contributors: Nodewerx
 Plugin Name: Inline Review
-Plugin URI: http://www.nodewerx.com/inline-review
+Plugin URI: http://tonyw.io/inline-review
 Tags: reviews, review, products
-Author URI: http://www.nodewerx.com
-Author: Tony Williams
+Author URI: http://tonyw.io
+Author: TonyW
 Requires at least: 3.6.0
 Tested up to: 3.8.1
-Stable tag: 1.0
-Version: 1.0
+Stable tag: 1.1.0
+Version: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
