@@ -1,7 +1,7 @@
 <?php
     /*
     Plugin Name: Inline Review
-    Plugin URI: http://www.nodewerx.com/inline-review
+    Plugin URI: http://www.tonyw.io/inline-review
     Description: Review engine for WordPress
     Author: TonyW
     Version: 1.0
