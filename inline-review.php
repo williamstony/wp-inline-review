@@ -3,7 +3,7 @@
     Plugin Name: Inline Review
     Plugin URI: http://www.nodewerx.com/inline-review
     Description: Review engine for WordPress
-    Author: Tony J Williams
+    Author: TonyW
     Version: 1.0
 
     */
@@ -120,47 +120,53 @@ function nwxrview_get_meta( $content ) {
     global $post;
     $nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true );
     $nwxrview_opts = get_option( 'nwxrview_options' );
-    if ( is_array( $nwxrview_meta_data ) && is_single() ) {
-        $content .= '<div class="nwxrview" style="border: 2px ' . esc_html( $nwxrview_opts['border_style'] ) . ' #' . esc_html( $nwxrview_opts['highlight_color'] ) . '; " itemprop="review" itemscope itemtype="http://schema.org/Review">
+    if ( !empty($nwxrview_meta_data) ) {
+      //  echo var_dump( $nwxrview_meta_data);
+        if (is_array($nwxrview_meta_data) && is_single()) {
+            $content .= '<div class="nwxrview" style="border: 2px ' . esc_html($nwxrview_opts['border_style']) . ' #' . esc_html($nwxrview_opts['highlight_color']) . '; " itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
-                        <span itemprop="name" style="display:none">' . esc_html( get_the_author_link() ) . '</span>
+                        <span itemprop="name" style="display:none">' . esc_html(get_the_author_link()) . '</span>
                     </div>
-                    <span itemprop="name" style="display:none">' . esc_html( get_the_title( get_the_id() ) ) . '</span>';
-        $nwx_total_calc = 0;
-        $nwx_score = 0;
-        foreach ( $nwxrview_meta_data as $nwx_attribs ) {
-            if ( !empty( $nwx_attribs['name'] ) ) {
-                // Dump scores down and make sure they don't go to 0 or above 10
-                if ( $nwx_attribs['score'] / 10 < 1 )
-                    $nwx_attribs['score'] = 10;
-                if ( $nwx_attribs['score'] / 10 > 10 )
-                    $nwx_attribs['score'] = 100;
-                $content .= esc_html( $nwx_attribs['name'] ) . " - " . esc_html( $nwx_attribs['score'] ) / 10 . '<br />
-                            <div class="nwxbar" style="width: ' . esc_html( $nwx_attribs['score'] ) . '%; background-color: #' . esc_html( $nwxrview_opts['highlight_color'] ) . ';"> &nbsp </div>
+                    <span itemprop="name" style="display:none">' . esc_html(get_the_title(get_the_id())) . '</span>';
+            $nwx_total_calc = 0;
+            $nwx_score = 0;
+            foreach ($nwxrview_meta_data as $nwx_attribs) {
+                if (!empty($nwx_attribs['name'])) {
+                    // Dump scores down and make sure they don't go to 0 or above 10
+                    if ($nwx_attribs['score'] / 10 < 1)
+                        $nwx_attribs['score'] = 10;
+                    if ($nwx_attribs['score'] / 10 > 10)
+                        $nwx_attribs['score'] = 100;
+                    $content .= esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '<br />
+                            <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%; background-color: #' . esc_html($nwxrview_opts['highlight_color']) . ';"> &nbsp </div>
                             <br>';
-                $nwx_score += $nwx_attribs['score'];
-                $nwx_total_calc++;
+                    $nwx_score += $nwx_attribs['score'];
+                    $nwx_total_calc++;
+                }
             }
-        }
 
-        $nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
-        $nwx_total_score = round($nwx_total_score * 2, 0) / 2;
-        $content .= '<div class="nwx-rview-sum" style=" border-right: 2px solid #' . esc_html( $nwxrview_opts['highlight_color'] ) . '; border-bottom: 2px solid #' . esc_html( $nwxrview_opts['highlight_color'] ) . ';">
-                        <div style="background: #' . esc_html( $nwxrview_opts['header_bg'] ) . '; height: 30px; padding: 0px 5px; color: #' . esc_html( $nwxrview_opts['highlight_color'] ) . ';">
+            $nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
+            $nwx_total_score = round($nwx_total_score * 2, 0) / 2;
+            $content .= '<div class="nwx-rview-sum" style=" border-right: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . ';">
+                        <div style="background: #' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; padding: 0px 5px; color: #' . esc_html($nwxrview_opts['highlight_color']) . ';">
                             <strong>Summary:</strong>
                         </div>
-                            <span itemprop="description">' . esc_html( get_post_meta( get_the_id(), 'nwx-rview-sum', true ) ) . '</span>
+                            <span itemprop="description">' . esc_html(get_post_meta(get_the_id(), 'nwx-rview-sum', true)) . '</span>
                     </div>
-                    <div class="nwx-total-score" style=" border-left: 2px solid #' . esc_html( $nwxrview_opts['highlight_color'] ) . '; border-bottom: 2px solid #' . esc_html( $nwxrview_opts['highlight_color'] ) . ';">
-                        <div style="background: #' . esc_html( $nwxrview_opts['header_bg'] ) . '; height: 30px; color: #' . esc_html( $nwxrview_opts['highlight_color'] ) . '">
+                    <div class="nwx-total-score" style=" border-left: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . ';">
+                        <div style="background: #' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; color: #' . esc_html($nwxrview_opts['highlight_color']) . '">
                             Total Score:
                         </div>
-                        <h1><span itemprop="ratingValue">' . esc_html( $nwx_total_score ) . '</span></h1>
+                        <h1><span itemprop="ratingValue">' . esc_html($nwx_total_score) . '</span></h1>
                     </div>
                     </div>';
-        return $content;
-    } else {
+            return $content;
+        } else {
+
+        }
+
+    }else {
         return $content;
     }
 }
