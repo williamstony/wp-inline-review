@@ -6,8 +6,8 @@
     Author: TonyW
     Version: 1.1.0
 
-    */
 
+    */
 
 /* Setting our defaults to avoid an error*/
 /*------------------------------*/
@@ -114,6 +114,8 @@ function save_nwxrview_meta( $post_id, $post )
 
 }
 
+add_filter ( 'the_content', 'nwxrview_get_meta' );
+
 /* Display the Review box after the post content */
 /*-------------------------------------*/
 function nwxrview_get_meta( $content ) {
@@ -170,7 +172,6 @@ function nwxrview_get_meta( $content ) {
         return $content;
     }
 }
-add_filter ( 'the_content', 'nwxrview_get_meta' );
 
 /* Options Page */
 /*--------------*/
