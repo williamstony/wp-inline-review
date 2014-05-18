@@ -9,19 +9,30 @@
 
     */
 
+<<<<<<< HEAD
 /* Setting our defaults to avoid an error and adding old*/
+=======
+/* Setting our defaults to avoid an error*/
+>>>>>>> 21407ec7b280171518498f1c379d63307705b063
 /*------------------------------*/
 register_activation_hook( __FILE__, 'nwxrview_defaults' );
 function nwxrview_defaults() {
     $tmp = get_option('nwxrview_options');
     if( !is_array( $tmp ) ) {
+<<<<<<< HEAD
         $arr = array( "highlight_color" => "#0f0", "border_style" => "Dotted", "header_bg" => "#CCC" );
+=======
+        $arr = array( "text_color"=>"222", "highlight_color" => "0f0", "border_style" => "Dotted", "header_bg" => "CCC" );
+>>>>>>> 21407ec7b280171518498f1c379d63307705b063
         update_option( 'nwxrview_options', $arr );
     }
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 21407ec7b280171518498f1c379d63307705b063
 /* Bring the styles in */
 /*---------------*/
 function nwxrview_styles(){
@@ -127,7 +138,11 @@ function nwxrview_get_meta( $content ) {
     if ( !empty($nwxrview_meta_data) ) {
       //  echo var_dump( $nwxrview_meta_data);
         if (is_array($nwxrview_meta_data) && is_single()) {
+<<<<<<< HEAD
             $content .= '<div class="nwxrview" style="border: 2px ' . esc_html($nwxrview_opts['border_style']) . ' ' . esc_html($nwxrview_opts['highlight_color']) . '; " itemprop="review" itemscope itemtype="http://schema.org/Review">
+=======
+            $content .= '<div class="nwxrview" style="border: 2px ' . esc_html($nwxrview_opts['border_style']) . ' #' . esc_html($nwxrview_opts['highlight_color']) . '; " itemprop="review" itemscope itemtype="http://schema.org/Review">
+>>>>>>> 21407ec7b280171518498f1c379d63307705b063
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
                         <span itemprop="name" style="display:none">' . esc_html(get_the_author_link()) . '</span>
@@ -143,7 +158,11 @@ function nwxrview_get_meta( $content ) {
                     if ($nwx_attribs['score'] / 10 > 10)
                         $nwx_attribs['score'] = 100;
                     $content .= esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '<br />
+<<<<<<< HEAD
                             <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%; background-color: ' . esc_html($nwxrview_opts['highlight_color']) . ';"> &nbsp </div>
+=======
+                            <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%; background-color: #' . esc_html($nwxrview_opts['highlight_color']) . ';"> &nbsp </div>
+>>>>>>> 21407ec7b280171518498f1c379d63307705b063
                             <br>';
                     $nwx_score += $nwx_attribs['score'];
                     $nwx_total_calc++;
@@ -152,14 +171,24 @@ function nwxrview_get_meta( $content ) {
 
             $nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
             $nwx_total_score = round($nwx_total_score * 2, 0) / 2;
+<<<<<<< HEAD
             $content .= '<div class="nwx-rview-sum" style=" border-right: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';">
                         <div style="background: ' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; padding: 0px 5px; color: ' . esc_html($nwxrview_opts['highlight_color']) . ';">
+=======
+            $content .= '<div class="nwx-rview-sum" style=" border-right: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . ';">
+                        <div style="background: #' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; padding: 0px 5px; color: #' . esc_html($nwxrview_opts['highlight_color']) . ';">
+>>>>>>> 21407ec7b280171518498f1c379d63307705b063
                             <strong>Summary:</strong>
                         </div>
                             <span itemprop="description">' . esc_html(get_post_meta(get_the_id(), 'nwx-rview-sum', true)) . '</span>
                     </div>
+<<<<<<< HEAD
                     <div class="nwx-total-score" style=" border-left: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';">
                         <div style="background: ' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; color: ' . esc_html($nwxrview_opts['highlight_color']) . '">
+=======
+                    <div class="nwx-total-score" style=" border-left: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid #' . esc_html($nwxrview_opts['highlight_color']) . ';">
+                        <div style="background: #' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; color: #' . esc_html($nwxrview_opts['highlight_color']) . '">
+>>>>>>> 21407ec7b280171518498f1c379d63307705b063
                             Total Score:
                         </div>
                         <h1><span itemprop="ratingValue">' . esc_html($nwx_total_score) . '</span></h1>
@@ -199,7 +228,11 @@ function nwxrview_init() {
 }
 
 function  nwxrview_text() {
+<<<<<<< HEAD
     echo '<p>Enter style settings below. Use hex values with the "#" for the colors. ex: #020202</p>';
+=======
+    echo '<p>Enter style settings below. Use hex values without the "#" for the colors. ex: 020202</p>';
+>>>>>>> 21407ec7b280171518498f1c379d63307705b063
 }
 
 /*Field callback functions */
