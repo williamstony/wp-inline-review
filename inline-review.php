@@ -179,9 +179,8 @@ add_action( 'admin_enqueue_scripts', 'nwxrview_admin_scripts' );
 
 function nwxrview_admin_scripts () {
 	wp_enqueue_script( 'jquery' );
-	wp_register_style ( 'nwxrview_color_style', plugins_url( 'js/farbtastic/farbtastic.css', __FILE__) );
-	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'js/farbtastic/farbtastic.css', __FILE__) );
-	wp_enqueue_script( 'nwxrview_color_picker', plugins_url( '/js/farbtastic/farbtastic.js', __FILE__ ), array(), '1.1', false );
+	wp_enqueue_script( 'nwxrview_color_picker', plugins_url( '/js/flexi-color-picker/colorpicker.min.js', __FILE__ ), array(), '1.1', false );
+	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'js/flexi-color-picker/themes.css', __FILE__) );
 
 }
 /* Options Page */
@@ -215,7 +214,7 @@ function  nwxrview_text() {
 /*------------------------*/
 function nwxrview_highlight_color() {
     $options = get_option( 'nwxrview_options' );
-    echo '<input id="rview_highlight_color" name="nwxrview_options[highlight_color]" size="40" type="text" value="' . $options['highlight_color'] . '" /> <div id="hlt_colorpicker"></div>';
+    echo '<input id="rview_highlight_color" name="nwxrview_options[highlight_color]" size="40" onFocus="setId(this.id)" type="text" value="' . $options['highlight_color'] . '" />';
 }
 
 function nwxrview_border_style() {
@@ -231,7 +230,7 @@ function nwxrview_border_style() {
 
 function nwxrview_header_bg() {
     $options = get_option( 'nwxrview_options' );
-    echo '<input id="plugin_text_color" name="nwxrview_options[header_bg]" size="40" type="text" value="' . $options['header_bg'] . '" /><div id="header_colorpicker"></div>';
+    echo '<input id="plugin_text_color" name="nwxrview_options[header_bg]" size="40" type="text" onFocus="setId(this.id)" value="' . $options['header_bg'] . '" />';
 }
 
 /* Options Page Function */
@@ -239,12 +238,6 @@ function nwxrview_header_bg() {
 function nwxrview_page_gen() {
     ?>
     <div class="opt_wrap">
-	    <script type="text/javascript" charset="utf-8">
-		    $(document).ready(function() {
-
-			    $('#hlt_colorpicker').farbtastic('#rview_highlight_color');
-		    });
-	    </script>
         <div class="icon32" id="icon-options-general"><br></div>
         <h2> Inline Review Options</h2>
 
@@ -256,6 +249,30 @@ function nwxrview_page_gen() {
             </p>
         </form>
     </div>
+	<div id="color-picker" class="cp-default"></div>
+	<script type="text/javascript">
+		var nwxCur_id;
+		function setId(id) {
+			nwxCur_id = id;
+			console.log( nwxCur_id );
+		}
+
+		ColorPicker(
+
+			document.getElementById('color-picker'),
+
+			function(hex, hsv, rgb) {
+				//console.log(hsv.h, hsv.s, hsv.v);         // [0-359], [0-1], [0-1]
+				//console.log(rgb.r, rgb.g, rgb.b);         // [0-255], [0-255], [0-255]
+				//console.log(hex);
+				//var currentElement = document.activeElement.id;
+				var nwxMyelm = document.getElementById( nwxCur_id );
+					nwxMyelm.value = hex;
+				//console.log( nwxCur_id );
+				//document.body.style.backgroundColor = hex;        // #HEX
+			});
+
+	</script>
 <?php
 }
 
