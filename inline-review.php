@@ -20,11 +20,11 @@ function nwxrview_defaults() {
     }
 }
 
-/* Bring the styles in */
-/*---------------*/
+
+/* Bring the styles and scripts in
+----------------------------------*/
 function nwxrview_styles(){
     wp_register_style ( 'nwxrview',  plugins_url('nwxrviewstyle.css', __FILE__));
-
     wp_enqueue_style ( 'nwxrview', plugins_url('nwxrviewstyle.css', __FILE__));
 }
 
@@ -173,6 +173,17 @@ function nwxrview_get_meta( $content ) {
     }
 }
 
+/* Enqueue Scripts on Admin Page
+--------------------------------*/
+add_action( 'admin_enqueue_scripts', 'nwxrview_admin_scripts' );
+
+function nwxrview_admin_scripts () {
+	wp_enqueue_script( 'jquery' );
+	wp_register_style ( 'nwxrview_color_style', plugins_url( 'js/farbtastic/farbtastic.css', __FILE__) );
+	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'js/farbtastic/farbtastic.css', __FILE__) );
+	wp_enqueue_script( 'nwxrview_color_picker', plugins_url( '/js/farbtastic/farbtastic.js', __FILE__ ), array(), '1.1', false );
+
+}
 /* Options Page */
 /*--------------*/
 add_action( 'admin_menu', 'nwxrview_options_page' );
@@ -204,7 +215,7 @@ function  nwxrview_text() {
 /*------------------------*/
 function nwxrview_highlight_color() {
     $options = get_option( 'nwxrview_options' );
-    echo '<input id="rview_highlight_color" name="nwxrview_options[highlight_color]" size="40" type="text" value="' . $options['highlight_color'] . '" />';
+    echo '<input id="rview_highlight_color" name="nwxrview_options[highlight_color]" size="40" type="text" value="' . $options['highlight_color'] . '" /> <div id="hlt_colorpicker"></div>';
 }
 
 function nwxrview_border_style() {
@@ -220,7 +231,7 @@ function nwxrview_border_style() {
 
 function nwxrview_header_bg() {
     $options = get_option( 'nwxrview_options' );
-    echo '<input id="plugin_text_color" name="nwxrview_options[header_bg]" size="40" type="text" value="' . $options['header_bg'] . '" />';
+    echo '<input id="plugin_text_color" name="nwxrview_options[header_bg]" size="40" type="text" value="' . $options['header_bg'] . '" /><div id="header_colorpicker"></div>';
 }
 
 /* Options Page Function */
@@ -228,6 +239,12 @@ function nwxrview_header_bg() {
 function nwxrview_page_gen() {
     ?>
     <div class="opt_wrap">
+	    <script type="text/javascript" charset="utf-8">
+		    $(document).ready(function() {
+
+			    $('#hlt_colorpicker').farbtastic('#rview_highlight_color');
+		    });
+	    </script>
         <div class="icon32" id="icon-options-general"><br></div>
         <h2> Inline Review Options</h2>
 
