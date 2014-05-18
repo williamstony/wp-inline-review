@@ -2,7 +2,7 @@
     /*
     Plugin Name: Inline Review
     Plugin URI: http://tonyw.io/inline-review
-    Description: Review engine for WordPress
+    Description: A Review engine for WordPress
     Author: TonyW
     Version: 1.1.0
 
