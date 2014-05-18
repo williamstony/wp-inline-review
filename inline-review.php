@@ -24,8 +24,8 @@ function nwxrview_defaults() {
 /* Bring the styles and scripts in
 ----------------------------------*/
 function nwxrview_styles(){
-    wp_register_style ( 'nwxrview',  plugins_url('nwxrviewstyle.css', __FILE__));
-    wp_enqueue_style ( 'nwxrview', plugins_url('nwxrviewstyle.css', __FILE__));
+    wp_register_style ( 'nwxrview',  plugins_url('css/nwxrviewstyle.css', __FILE__));
+    wp_enqueue_style ( 'nwxrview', plugins_url('css/nwxrviewstyle.css', __FILE__));
 }
 
 add_action( 'wp_enqueue_scripts', 'nwxrview_styles');
@@ -179,8 +179,8 @@ add_action( 'admin_enqueue_scripts', 'nwxrview_admin_scripts' );
 
 function nwxrview_admin_scripts () {
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'nwxrview_color_picker', plugins_url( '/js/flexi-color-picker/colorpicker.min.js', __FILE__ ), array(), '1.1', false );
-	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'js/flexi-color-picker/themes.css', __FILE__) );
+	wp_enqueue_script( 'nwxrview_color_picker', plugins_url( 'js/flexi-color-picker/colorpicker.min.js', __FILE__ ), array(), '1.1', false );
+	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'css/nwxrviewadmin.css', __FILE__) );
 
 }
 /* Options Page */
@@ -238,9 +238,10 @@ function nwxrview_header_bg() {
 function nwxrview_page_gen() {
     ?>
     <div class="opt_wrap">
+
         <div class="icon32" id="icon-options-general"><br></div>
         <h2> Inline Review Options</h2>
-
+	    <div id="color-picker" class="cp-default"></div>
         <form action="options.php" method="post">
             <?php settings_fields( 'nwxrview_options' ); ?>
             <?php do_settings_sections( 'rview-admin' ); ?>
@@ -249,12 +250,12 @@ function nwxrview_page_gen() {
             </p>
         </form>
     </div>
-	<div id="color-picker" class="cp-default"></div>
+
 	<script type="text/javascript">
 		var nwxCur_id;
 		function setId(id) {
 			nwxCur_id = id;
-			console.log( nwxCur_id );
+			//console.log( nwxCur_id );
 		}
 
 		ColorPicker(
