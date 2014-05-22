@@ -241,7 +241,7 @@ function nwxrview_page_gen() {
 
         <div class="icon32" id="icon-options-general"><br></div>
         <h2> Inline Review Options</h2>
-	    <div id="color-picker" class="cp-default"></div>
+
         <form action="options.php" method="post">
             <?php settings_fields( 'nwxrview_options' ); ?>
             <?php do_settings_sections( 'rview-admin' ); ?>
@@ -249,6 +249,7 @@ function nwxrview_page_gen() {
                 <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>"/>
             </p>
         </form>
+        <div id="color-picker" class="cp-default"></div>
     </div>
 
 	<script type="text/javascript">

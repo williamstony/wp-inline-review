@@ -1,4 +1,7 @@
-.cp-default{background-color:gray;padding:12px;box-shadow:0 0 40px #000;border-radius:15px;float:right}
+.picker-wrapper,.slide-wrapper{position:relative;float:left}
+.picker-indicator,.slide-indicator{position:absolute;left:0;top:0;pointer-events:none}
+.picker,.slide{cursor:crosshair;float:left}
+.cp-default{background-color:gray;padding:12px;box-shadow:0 0 40px #000;border-radius:15px;float:left}
 .cp-default .picker{width:200px;height:200px}
 .cp-default .slide{width:30px;height:200px}
 .cp-default .slide-wrapper{margin-left:10px}

@@ -1,10 +1,28 @@
+/* Common stuff */
+.picker-wrapper,
+.slide-wrapper {
+  position: relative;
+  float: left; }
+
+.picker-indicator,
+.slide-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none; }
+
+.picker,
+.slide {
+  cursor: crosshair;
+  float: left; }
+
 /* Default skin */
 .cp-default {
   background-color: gray;
   padding: 12px;
   box-shadow: 0 0 40px #000;
   border-radius: 15px;
-  float: right; }
+  float: left; }
 
 .cp-default .picker {
   width: 200px;
