@@ -24,8 +24,8 @@ function nwxrview_defaults() {
 /* Bring the styles and scripts in
 ----------------------------------*/
 function nwxrview_styles(){
-    wp_register_style ( 'nwxrview',  plugins_url('css/nwxrviewstyle.css', __FILE__));
-    wp_enqueue_style ( 'nwxrview', plugins_url('css/nwxrviewstyle.css', __FILE__));
+    wp_register_style ( 'nwxrview',  plugins_url('css/nwxrviewstyle.min.css', __FILE__));
+    wp_enqueue_style ( 'nwxrview');
 }
 
 add_action( 'wp_enqueue_scripts', 'nwxrview_styles');
@@ -180,7 +180,7 @@ add_action( 'admin_enqueue_scripts', 'nwxrview_admin_scripts' );
 function nwxrview_admin_scripts () {
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'nwxrview_color_picker', plugins_url( 'js/flexi-color-picker/colorpicker.min.js', __FILE__ ), array(), '1.1', false );
-	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'css/nwxrviewadmin.css', __FILE__) );
+	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'css/nwxrviewadmin.min.css', __FILE__) );
 
 }
 /* Options Page */
