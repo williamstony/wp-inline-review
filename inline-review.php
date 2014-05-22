@@ -230,7 +230,7 @@ function nwxrview_border_style() {
 
 function nwxrview_header_bg() {
     $options = get_option( 'nwxrview_options' );
-    echo '<input id="plugin_text_color" name="nwxrview_options[header_bg]" size="40" type="text" onFocus="setId(this.id)" value="' . $options['header_bg'] . '" />';
+    echo '<input id="plugin_text_color" class="nwxheader_bg" name="nwxrview_options[header_bg]" size="40" type="text" onFocus="setId(this.id)" value="' . $options['header_bg'] . '" />';
 }
 
 /* Options Page Function */
@@ -246,32 +246,25 @@ function nwxrview_page_gen() {
             <?php settings_fields( 'nwxrview_options' ); ?>
             <?php do_settings_sections( 'rview-admin' ); ?>
             <p class="submit">
-                <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>"/>
+                <input name="Submit" type="submit" class="nwxrview_save" value="<?php esc_attr_e('Save Changes'); ?>"/>
             </p>
         </form>
-        <div id="color-picker" class="cp-default"></div>
+        <div id="color-picker" class="cp-normal"></div>
     </div>
 
 	<script type="text/javascript">
 		var nwxCur_id;
 		function setId(id) {
 			nwxCur_id = id;
-			//console.log( nwxCur_id );
 		}
 
 		ColorPicker(
 
 			document.getElementById('color-picker'),
 
-			function(hex, hsv, rgb) {
-				//console.log(hsv.h, hsv.s, hsv.v);         // [0-359], [0-1], [0-1]
-				//console.log(rgb.r, rgb.g, rgb.b);         // [0-255], [0-255], [0-255]
-				//console.log(hex);
-				//var currentElement = document.activeElement.id;
+			function(hex) {
 				var nwxMyelm = document.getElementById( nwxCur_id );
 					nwxMyelm.value = hex;
-				//console.log( nwxCur_id );
-				//document.body.style.backgroundColor = hex;        // #HEX
 			});
 
 	</script>
