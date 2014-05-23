@@ -20,15 +20,11 @@ function nwxrview_defaults() {
     }
 }
 
-
-/* Bring the styles and scripts in
-----------------------------------*/
-function nwxrview_styles(){
-    wp_register_style ( 'nwxrview',  plugins_url('css/nwxrviewstyle.min.css', __FILE__));
-    wp_enqueue_style ( 'nwxrview');
-}
-
-add_action( 'wp_enqueue_scripts', 'nwxrview_styles');
+/*-------------------------------------------
+ *
+ * Post Editor Screen
+ *
+ -------------------------------------------*/
 
 /* Fire our meta box setup function on the post editor screen */
 /*------------------------------------------------*/
@@ -114,6 +110,39 @@ function save_nwxrview_meta( $post_id, $post )
 
 }
 
+/*-----------------------------------------------
+ *
+ * Output on post
+ *
+ -----------------------------------------------*/
+
+add_action( 'wp_enqueue_scripts', 'nwxrview_styles');
+
+/* Bring the styles and scripts in
+----------------------------------*/
+function nwxrview_styles(){
+    wp_register_style ( 'nwxrview',  plugins_url('css/nwxrviewstyle.min.css', __FILE__));
+    wp_enqueue_style ( 'nwxrview');
+}
+
+add_action ( 'wp_head', 'nwxrview_embed_styles' );
+
+/* Embed styles in head */
+/*---------------------*/
+
+function nwxrview_embed_styles ()
+{
+
+    $nwxrview_css .= '
+            .nwxrview {
+               border: 2px ' . esc_html($nwxrview_opts['border_style']) . ' ' . esc_html($nwxrview_opts['highlight_color']) . ';
+             }
+
+            .nwxbar {
+               background-color: ' . esc_html($nwxrview_opts['highlight_color']) . ';
+            }'
+}
+
 add_filter ( 'the_content', 'nwxrview_get_meta' );
 
 /* Display the Review box after the post content */
@@ -125,7 +154,7 @@ function nwxrview_get_meta( $content ) {
     if ( !empty($nwxrview_meta_data) ) {
       //  echo var_dump( $nwxrview_meta_data);
         if (is_array($nwxrview_meta_data) && is_single()) {
-            $content .= '<div class="nwxrview" style="border: 2px ' . esc_html($nwxrview_opts['border_style']) . ' ' . esc_html($nwxrview_opts['highlight_color']) . '; " itemprop="review" itemscope itemtype="http://schema.org/Review">
+            $content .= '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
                         <span itemprop="name" style="display:none">' . esc_html(get_the_author_link()) . '</span>
@@ -141,7 +170,7 @@ function nwxrview_get_meta( $content ) {
                     if ($nwx_attribs['score'] / 10 > 10)
                         $nwx_attribs['score'] = 100;
                     $content .= esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '<br />
-                            <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%; background-color: ' . esc_html($nwxrview_opts['highlight_color']) . ';"> &nbsp </div>
+                            <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div>
                             <br>';
                     $nwx_score += $nwx_attribs['score'];
                     $nwx_total_calc++;
@@ -173,6 +202,13 @@ function nwxrview_get_meta( $content ) {
     }
 }
 
+
+/*---------------------------------------------
+ *
+ * Admin/Settings Page
+ *
+ --------------------------------------------*/
+
 /* Enqueue Scripts on Admin Page
 --------------------------------*/
 add_action( 'admin_enqueue_scripts', 'nwxrview_admin_scripts' );
@@ -183,7 +219,7 @@ function nwxrview_admin_scripts () {
 	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'css/nwxrviewadmin.min.css', __FILE__) );
 
 }
-/* Options Page */
+/* Settings Page */
 /*--------------*/
 add_action( 'admin_menu', 'nwxrview_options_page' );
 
