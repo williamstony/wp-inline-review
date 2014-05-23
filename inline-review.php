@@ -130,8 +130,10 @@ add_action ( 'wp_head', 'nwxrview_embed_styles' );
 /* Embed styles in head */
 /*---------------------*/
 
-function nwxrview_embed_styles ()
-{
+function nwxrview_embed_styles () {
+    global $post;
+    $nwxrview_opts = get_option( 'nwxrview_options' );
+    $nwxrview_css = '';
 
     $nwxrview_css .= '
             .nwxrview {
@@ -140,7 +142,19 @@ function nwxrview_embed_styles ()
 
             .nwxbar {
                background-color: ' . esc_html($nwxrview_opts['highlight_color']) . ';
-            }'
+            }
+
+            .nwx-rview-sum {
+               border-right: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';
+               border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';
+            }
+
+            .nwx-total-score {
+                border-left: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';
+                border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';
+             }';
+
+    echo '<style type="text/css" media="screen">' . $nwxrview_css . '</style>';
 }
 
 add_filter ( 'the_content', 'nwxrview_get_meta' );
@@ -179,13 +193,13 @@ function nwxrview_get_meta( $content ) {
 
             $nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
             $nwx_total_score = round($nwx_total_score * 2, 0) / 2;
-            $content .= '<div class="nwx-rview-sum" style=" border-right: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';">
+            $content .= '<div class="nwx-rview-sum">
                         <div style="background: ' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; padding: 0px 5px; color: ' . esc_html($nwxrview_opts['highlight_color']) . ';">
                             <strong>Summary:</strong>
                         </div>
                             <span itemprop="description">' . esc_html(get_post_meta(get_the_id(), 'nwx-rview-sum', true)) . '</span>
                     </div>
-                    <div class="nwx-total-score" style=" border-left: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';">
+                    <div class="nwx-total-score">
                         <div style="background: ' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; color: ' . esc_html($nwxrview_opts['highlight_color']) . '">
                             Total Score:
                         </div>
