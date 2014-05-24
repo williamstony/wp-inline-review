@@ -249,7 +249,7 @@ add_action( 'admin_init', 'nwxrview_init' );
 
 function nwxrview_init() {
     register_setting( 'nwxrview_options', 'nwxrview_options', 'nwxrview_options_validate' );
-    add_settings_section( 'main_section', 'Style Settings', 'nwxrview_text', 'rview-admin' );
+    add_settings_section( 'main_section', '', 'nwxrview_text', 'rview-admin' );
     add_settings_field( 'rview_header_bg', 'Header Backgrounds:', 'nwxrview_header_bg', 'rview-admin', 'main_section' );
     add_settings_field( 'rview_highlight_color', 'Highlight color(includes bars):', 'nwxrview_highlight_color', 'rview-admin', 'main_section' );
     add_settings_field( 'rview_border_style', 'Border Style:', 'nwxrview_border_style', 'rview-admin', 'main_section' );
@@ -257,20 +257,20 @@ function nwxrview_init() {
 }
 
 function  nwxrview_text() {
-    echo '<p>Enter style settings below. Use hex values with the "#" for the colors. ex: #020202</p>';
+    echo '<div style="width: 800px;"><p>Enter style settings below. Use hex values with the "#" for the colors. ex: #020202</p><strong>Using The Color Picker:</strong> To use the color picker at the bottom of this page, first select the field you\'d like to change the color of. Then use the color picker at the bottom to find the color you\'d like. The valuse of the field ex: #010101 will change as you move around the color selection area. When you are satisified with the colors simply click "Save Changes" and you are done.</div><br><div class="nwxrview_opt_page">';
 }
 
 /*Field callback functions */
 /*------------------------*/
 function nwxrview_highlight_color() {
     $options = get_option( 'nwxrview_options' );
-    echo '<input id="rview_highlight_color" name="nwxrview_options[highlight_color]" size="40" onFocus="setId(this.id)" type="text" value="' . $options['highlight_color'] . '" />';
+    echo '<input id="rview_highlight_color" class="nwxhighlight_color" name="nwxrview_options[highlight_color]" size="40" onFocus="setId(this.id)" type="text" value="' . $options['highlight_color'] . '" />';
 }
 
 function nwxrview_border_style() {
     $options = get_option( 'nwxrview_options' );
     $nwx_styles = array( 'Solid', 'Dashed', 'Dotted', 'Hidden' );
-    echo '<select id="style_select" name="nwxrview_options[border_style]" />';
+    echo '<select id="style_select" class="nwxborder_style" name="nwxrview_options[border_style]" />';
     foreach ( $nwx_styles as $styles ) {
         $selection = ( $options['border_style'] == $styles ) ? 'selected="selected"' : ' ';
         echo '<option value="' . $styles . '"' . $selection . '>' . $styles . '</option>';
@@ -290,7 +290,7 @@ function nwxrview_page_gen() {
     <div class="opt_wrap">
 
         <div class="icon32" id="icon-options-general"><br></div>
-        <h2> Inline Review Options</h2>
+        <h1> Inline Review Options</h1>
 
         <form action="options.php" method="post">
             <?php settings_fields( 'nwxrview_options' ); ?>
@@ -299,7 +299,10 @@ function nwxrview_page_gen() {
                 <input name="Submit" type="submit" class="nwxrview_save" value="<?php esc_attr_e('Save Changes'); ?>"/>
             </p>
         </form>
+        </div>
+        <div class="nwxrview_opt_right">
         <div id="color-picker" class="cp-normal"></div>
+        </div>
     </div>
 
 	<script type="text/javascript">
