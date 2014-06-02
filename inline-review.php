@@ -2,7 +2,7 @@
     /*
     Plugin Name: Inline Review
     Plugin URI: http://tonyw.io/inline-review
-    Description: Review engine for WordPress
+    Description: A Review engine for WordPress
     Author: TonyW
     Version: 1.1.0
 
@@ -20,15 +20,11 @@ function nwxrview_defaults() {
     }
 }
 
-/* Bring the styles in */
-/*---------------*/
-function nwxrview_styles(){
-    wp_register_style ( 'nwxrview',  plugins_url('nwxrviewstyle.css', __FILE__));
-
-    wp_enqueue_style ( 'nwxrview', plugins_url('nwxrviewstyle.css', __FILE__));
-}
-
-add_action( 'wp_enqueue_scripts', 'nwxrview_styles');
+/*-------------------------------------------
+ *
+ * Post Editor Screen
+ *
+ -------------------------------------------*/
 
 /* Fire our meta box setup function on the post editor screen */
 /*------------------------------------------------*/
@@ -114,6 +110,53 @@ function save_nwxrview_meta( $post_id, $post )
 
 }
 
+/*-----------------------------------------------
+ *
+ * Output on post
+ *
+ -----------------------------------------------*/
+
+add_action( 'wp_enqueue_scripts', 'nwxrview_styles');
+
+/* Bring the styles and scripts in
+----------------------------------*/
+function nwxrview_styles(){
+    wp_register_style ( 'nwxrview',  plugins_url('css/nwxrviewstyle.min.css', __FILE__));
+    wp_enqueue_style ( 'nwxrview');
+}
+
+add_action ( 'wp_head', 'nwxrview_embed_styles' );
+
+/* Embed styles in head */
+/*---------------------*/
+
+function nwxrview_embed_styles () {
+    global $post;
+    $nwxrview_opts = get_option( 'nwxrview_options' );
+    $nwxrview_css = '';
+
+    $nwxrview_css .= '
+            .nwxrview {
+               border: 2px ' . esc_html($nwxrview_opts['border_style']) . ' ' . esc_html($nwxrview_opts['highlight_color']) . ';
+             }
+
+            .nwxbar {
+               background-color: ' . esc_html($nwxrview_opts['highlight_color']) . ';
+            }
+
+            .nwx-rview-sum {
+               border-right: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';
+               border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';
+            }
+
+            .nwx-total-score {
+                border-left: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';
+                border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';
+             }';
+
+    echo '<style type="text/css" media="screen">' . $nwxrview_css . '</style>';
+}
+
 add_filter ( 'the_content', 'nwxrview_get_meta' );
 
 /* Display the Review box after the post content */
@@ -125,7 +168,7 @@ function nwxrview_get_meta( $content ) {
     if ( !empty($nwxrview_meta_data) ) {
       //  echo var_dump( $nwxrview_meta_data);
         if (is_array($nwxrview_meta_data) && is_single()) {
-            $content .= '<div class="nwxrview" style="border: 2px ' . esc_html($nwxrview_opts['border_style']) . ' ' . esc_html($nwxrview_opts['highlight_color']) . '; " itemprop="review" itemscope itemtype="http://schema.org/Review">
+            $content .= '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
                         <span itemprop="name" style="display:none">' . esc_html(get_the_author_link()) . '</span>
@@ -141,7 +184,7 @@ function nwxrview_get_meta( $content ) {
                     if ($nwx_attribs['score'] / 10 > 10)
                         $nwx_attribs['score'] = 100;
                     $content .= esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '<br />
-                            <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%; background-color: ' . esc_html($nwxrview_opts['highlight_color']) . ';"> &nbsp </div>
+                            <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div>
                             <br>';
                     $nwx_score += $nwx_attribs['score'];
                     $nwx_total_calc++;
@@ -150,13 +193,13 @@ function nwxrview_get_meta( $content ) {
 
             $nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
             $nwx_total_score = round($nwx_total_score * 2, 0) / 2;
-            $content .= '<div class="nwx-rview-sum" style=" border-right: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';">
+            $content .= '<div class="nwx-rview-sum">
                         <div style="background: ' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; padding: 0px 5px; color: ' . esc_html($nwxrview_opts['highlight_color']) . ';">
                             <strong>Summary:</strong>
                         </div>
                             <span itemprop="description">' . esc_html(get_post_meta(get_the_id(), 'nwx-rview-sum', true)) . '</span>
                     </div>
-                    <div class="nwx-total-score" style=" border-left: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . '; border-bottom: 2px solid ' . esc_html($nwxrview_opts['highlight_color']) . ';">
+                    <div class="nwx-total-score">
                         <div style="background: ' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; color: ' . esc_html($nwxrview_opts['highlight_color']) . '">
                             Total Score:
                         </div>
@@ -173,7 +216,24 @@ function nwxrview_get_meta( $content ) {
     }
 }
 
-/* Options Page */
+
+/*---------------------------------------------
+ *
+ * Admin/Settings Page
+ *
+ --------------------------------------------*/
+
+/* Enqueue Scripts on Admin Page
+--------------------------------*/
+add_action( 'admin_enqueue_scripts', 'nwxrview_admin_scripts' );
+
+function nwxrview_admin_scripts () {
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'nwxrview_color_picker', plugins_url( 'js/flexi-color-picker/colorpicker.min.js', __FILE__ ), array(), '1.1', false );
+	wp_enqueue_style ('nwxrview_color_style', plugins_url( 'css/nwxrviewadmin.min.css', __FILE__) );
+
+}
+/* Settings Page */
 /*--------------*/
 add_action( 'admin_menu', 'nwxrview_options_page' );
 
@@ -189,7 +249,7 @@ add_action( 'admin_init', 'nwxrview_init' );
 
 function nwxrview_init() {
     register_setting( 'nwxrview_options', 'nwxrview_options', 'nwxrview_options_validate' );
-    add_settings_section( 'main_section', 'Style Settings', 'nwxrview_text', 'rview-admin' );
+    add_settings_section( 'main_section', '', 'nwxrview_text', 'rview-admin' );
     add_settings_field( 'rview_header_bg', 'Header Backgrounds:', 'nwxrview_header_bg', 'rview-admin', 'main_section' );
     add_settings_field( 'rview_highlight_color', 'Highlight color(includes bars):', 'nwxrview_highlight_color', 'rview-admin', 'main_section' );
     add_settings_field( 'rview_border_style', 'Border Style:', 'nwxrview_border_style', 'rview-admin', 'main_section' );
@@ -197,20 +257,20 @@ function nwxrview_init() {
 }
 
 function  nwxrview_text() {
-    echo '<p>Enter style settings below. Use hex values with the "#" for the colors. ex: #020202</p>';
+    echo '<div style="width: 800px;"><p>Enter style settings below. Use hex values with the "#" for the colors. ex: #020202</p><strong>Using The Color Picker:</strong> To use the color picker at the bottom of this page, first select the field you\'d like to change the color of. Then use the color picker at the bottom to find the color you\'d like. The valuse of the field ex: #010101 will change as you move around the color selection area. When you are satisified with the colors simply click "Save Changes" and you are done.</div><br><div class="nwxrview_opt_page">';
 }
 
 /*Field callback functions */
 /*------------------------*/
 function nwxrview_highlight_color() {
     $options = get_option( 'nwxrview_options' );
-    echo '<input id="rview_highlight_color" name="nwxrview_options[highlight_color]" size="40" type="text" value="' . $options['highlight_color'] . '" />';
+    echo '<input id="rview_highlight_color" class="nwxhighlight_color" name="nwxrview_options[highlight_color]" size="40" onFocus="setId(this.id)" type="text" value="' . $options['highlight_color'] . '" />';
 }
 
 function nwxrview_border_style() {
     $options = get_option( 'nwxrview_options' );
     $nwx_styles = array( 'Solid', 'Dashed', 'Dotted', 'Hidden' );
-    echo '<select id="style_select" name="nwxrview_options[border_style]" />';
+    echo '<select id="style_select" class="nwxborder_style" name="nwxrview_options[border_style]" />';
     foreach ( $nwx_styles as $styles ) {
         $selection = ( $options['border_style'] == $styles ) ? 'selected="selected"' : ' ';
         echo '<option value="' . $styles . '"' . $selection . '>' . $styles . '</option>';
@@ -220,7 +280,7 @@ function nwxrview_border_style() {
 
 function nwxrview_header_bg() {
     $options = get_option( 'nwxrview_options' );
-    echo '<input id="plugin_text_color" name="nwxrview_options[header_bg]" size="40" type="text" value="' . $options['header_bg'] . '" />';
+    echo '<input id="plugin_text_color" class="nwxheader_bg" name="nwxrview_options[header_bg]" size="40" type="text" onFocus="setId(this.id)" value="' . $options['header_bg'] . '" />';
 }
 
 /* Options Page Function */
@@ -228,17 +288,39 @@ function nwxrview_header_bg() {
 function nwxrview_page_gen() {
     ?>
     <div class="opt_wrap">
+
         <div class="icon32" id="icon-options-general"><br></div>
-        <h2> Inline Review Options</h2>
+        <h1> Inline Review Options</h1>
 
         <form action="options.php" method="post">
             <?php settings_fields( 'nwxrview_options' ); ?>
             <?php do_settings_sections( 'rview-admin' ); ?>
             <p class="submit">
-                <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>"/>
+                <input name="Submit" type="submit" class="nwxrview_save" value="<?php esc_attr_e('Save Changes'); ?>"/>
             </p>
         </form>
+        </div>
+        <div class="nwxrview_opt_right">
+        <div id="color-picker" class="cp-normal"></div>
+        </div>
     </div>
+
+	<script type="text/javascript">
+		var nwxCur_id;
+		function setId(id) {
+			nwxCur_id = id;
+		}
+
+		ColorPicker(
+
+			document.getElementById('color-picker'),
+
+			function(hex) {
+				var nwxMyelm = document.getElementById( nwxCur_id );
+					nwxMyelm.value = hex;
+			});
+
+	</script>
 <?php
 }
 
