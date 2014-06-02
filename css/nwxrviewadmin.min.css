@@ -1,0 +1,14 @@
+.picker-wrapper,.slide-wrapper{position:relative;float:left}
+.picker-indicator,.slide-indicator{position:absolute;top:0;left:0;pointer-events:none}
+.picker,.slide{float:left;cursor:crosshair}
+.cp-normal{float:left;padding:5px;border:2px solid #000;background-color:#555}
+.cp-normal .picker{width:200px;height:200px}
+.cp-normal .slide{width:30px;height:200px}
+.cp-normal .slide-wrapper{margin-left:10px}
+.cp-normal .picker-indicator{width:5px;height:5px;pointer-events:none;opacity:.5;border:1px solid gray;background-color:#fff;-ms-filter:'alpha(Opacity=50)';filter:alpha(Opacity=50);filter:alpha(opacity=50)}
+.cp-normal .slide-indicator{left:-4px;width:100%;height:10px;pointer-events:none;opacity:.6;border:4px solid gray;background-color:#fff;-ms-filter:'alpha(Opacity=60)';filter:alpha(Opacity=60);filter:alpha(opacity=60)}
+.nwxborder_style,input[type=text].nwxheader_bg,input[type=text].nwxhighlight_color{color:#ddd;border:2px solid #000;border-radius:0;background-color:#555}
+.nwxrview_save{text-decoration:none;color:#ddd;border:2px solid #000;background:#555}
+.nwxrview_save:hover{background:#000}
+.nwxrview_opt_page{float:left;width:490px;margin-right:10px}
+.nwxrview_opt_right{float:left;width:290px;margin-left:10px}
