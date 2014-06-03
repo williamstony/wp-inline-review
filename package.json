@@ -1,0 +1,19 @@
+{
+  "name": "inline-review",
+  "version": "1.1.0",
+  "description": "=== Inline Review === Contributors: Nodewerx Plugin Name: Inline Review Plugin URI: http://tonyw.io/inline-review Tags: reviews, review, products Author URI: http://tonyw.io Author: TonyW Requires at least: 3.6.0 Tested up to: 3.9.1 Stable tag: 1.1.0 Version: 1.1.0 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "inline-review.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/williamstony/wp-inline-review.git"
+  },
+  "author": "TonyW",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/williamstony/wp-inline-review/issues"
+  },
+  "homepage": "https://github.com/williamstony/wp-inline-review"
+}
