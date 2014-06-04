@@ -173,7 +173,7 @@ function nwxrview_get_meta( $content ) {
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
                         <span itemprop="name" style="display:none">' . esc_html(get_the_author_link()) . '</span>
                     </div>
-                    <span itemprop="name" style="display:none">' . esc_html(get_the_title(get_the_id())) . '</span>';
+                    <span itemprop="name" style="display:none">' . esc_html(get_the_title(get_the_id())) . '</span><ul style="margin: 0 0 .5rem 0">';
             $nwx_total_calc = 0;
             $nwx_score = 0;
             foreach ($nwxrview_meta_data as $nwx_attribs) {
@@ -183,9 +183,7 @@ function nwxrview_get_meta( $content ) {
                         $nwx_attribs['score'] = 10;
                     if ($nwx_attribs['score'] / 10 > 10)
                         $nwx_attribs['score'] = 100;
-                    $content .= esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '<br />
-                            <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div>
-                            <br>';
+                    $content .='<li style="color: #000; list-style-type: none; margin: auto;">' . esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . ' <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div> </li>';
                     $nwx_score += $nwx_attribs['score'];
                     $nwx_total_calc++;
                 }
@@ -193,7 +191,7 @@ function nwxrview_get_meta( $content ) {
 
             $nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
             $nwx_total_score = round($nwx_total_score * 2, 0) / 2;
-            $content .= '<div class="nwx-rview-sum">
+            $content .= '</ul><div class="nwx-rview-sum">
                         <div style="background: ' . esc_html($nwxrview_opts['header_bg']) . '; height: 30px; padding: 0px 5px; color: ' . esc_html($nwxrview_opts['highlight_color']) . ';">
                             <strong>Summary:</strong>
                         </div>
