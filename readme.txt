@@ -26,8 +26,10 @@ The plugin settings are located under the main "Settings" menu in the WordPress 
 1. Upload the "inline-reviews" folder to the "/wp-content/plugins" directory.
 2. Activate the plugin through the "Plugins" menu in WordPress
 3. Edit or create a new post and scroll to the bottom for entry of attributes.
-== Upgrade Notice ==
 
+== Upgrade Notice ==
+= 1.1.0 =
+Added color picker support. Note: after upgrading you will need to go into the setting page and add a `#` in front of your color codes.
 = 1.0 =
 Initial Release
 
@@ -36,6 +38,12 @@ Initial Release
 2. Options
 
 == Changelog ==
+
+= 1.1.0 =
+*Added color picker to settings page
+*Added support for color names instead of hex codes only
+*Restructured folders and files
+*Restructured code to be readable
 
 = 1.0 =
 * Initial release
