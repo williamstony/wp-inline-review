@@ -56,7 +56,7 @@ function nwxrview_add_meta_boxes() {
 
 /* Display the post meta box. */
 /*-----------------------*/
-function nwxrview_meta_box( $object, $box )  {
+function nwxrview_meta_box( $object, $box ) {
           $nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true);
           wp_nonce_field( basename( __FILE__ ), 'nwxrview_nonce' ); ?>
 
@@ -80,12 +80,11 @@ function nwxrview_meta_box( $object, $box )  {
 
 /* Save the meta box's post metadata. */
 /*------------------------------*/
-function save_nwxrview_meta( $post_id, $post )
-{
+function save_nwxrview_meta( $post_id, $post ) {
 
     /* Verify noonce before proceeding */
     /*----------------------------*/
-    if ( !isset( $_POST['nwxrview_nonce'] ) || !wp_verify_nonce( $_POST['nwxrview_nonce'], basename(__FILE__) ) ){
+    if ( !isset( $_POST['nwxrview_nonce'] ) || !wp_verify_nonce( $_POST['nwxrview_nonce'], basename(__FILE__) ) ) {
 
         return $post_id;
     }
@@ -96,7 +95,7 @@ function save_nwxrview_meta( $post_id, $post )
 
     /* Check if the current user has permission to edit the post */
     /*-----------------------------------------------*/
-    if ( !current_user_can( $post_type->cap->edit_post, $post_id ) ){
+    if ( !current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 
         return $post_id;
     }
@@ -120,7 +119,7 @@ add_action( 'wp_enqueue_scripts', 'nwxrview_styles');
 
 /* Bring the styles and scripts in
 ----------------------------------*/
-function nwxrview_styles(){
+function nwxrview_styles() {
     wp_register_style ( 'nwxrview',  plugins_url('css/nwxrviewstyle.min.css', __FILE__));
     wp_enqueue_style ( 'nwxrview');
 }
@@ -326,8 +325,7 @@ function nwxrview_page_gen() {
 
 /*Validate everything before saving*/
 /*----------------------------*/
-function nwxrview_options_validate($input)
-{
+function nwxrview_options_validate($input) {
     $input['header_bg'] = sanitize_text_field( $input['header_bg'] );
     $input['border_style'] = sanitize_text_field( $input['border_style'] );
     $input['highlight_color'] = sanitize_text_field( $input['highlight_color'] );
