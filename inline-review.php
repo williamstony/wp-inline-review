@@ -298,11 +298,10 @@ function nwxrview_page_gen() {
                 <input name="Submit" type="submit" class="nwxrview_save" value="<?php esc_attr_e('Save Changes'); ?>"/>
             </p>
         </form>
-        </div>
+    </div>
         <div class="nwxrview_opt_right">
         <div id="color-picker" class="cp-normal"></div>
         </div>
-    </div>
 
 	<script type="text/javascript">
 		var nwxCur_id;
