@@ -20,8 +20,8 @@ gulp.task('css-admin', function() {
 });
 
 gulp.task('css-style', function() {
-    gulp.src('./css/scss/nwxrviewstyle.css')
-         .pipe(sass({ style: 'expanded' }))
+    gulp.src('./css/scss/nwxrviewstyle.scss')
+        .pipe(sass({ style: 'expanded' }))
         .pipe(prefix('last 1 version', '> 1%', 'ie 8', 'ie 7'))
         .pipe(csscomb())
         .pipe(gulp.dest('./css/'))

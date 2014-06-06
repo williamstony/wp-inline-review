@@ -1,31 +1,58 @@
-.nwxbar {
-  background-color: #af0;
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-  -pie-background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent) 0 0/5px 5px #aacc00;
-  background-size: 10px 10px;
-  behavior: url(/pie/PIE.htc);
-  border: 1px solid #333;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 10px; }
+.nwxbar
+{
+    height: 10px;
 
-.nwxrview {
-  height: 100%;
-  margin: 5px;
-  overflow: hidden;
-  padding: 10px; }
+    border: 1px solid #333;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #af0;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image:         linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    -webkit-background-size: 10px 10px;
+            background-size: 10px 10px;
 
-.nwx-total-score {
-  display: block;
-  float: right;
-  min-height: 100px;
-  text-align: center;
-  width: 25%; }
+    -pie-background: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent) 0 0/5px 5px #ac0;
+    behavior: url(/pie/PIE.htc);
+}
 
-.nwx-rview-sum {
-  display: block;
-  float: left;
-  min-height: 100px;
-  width: 73%; }
+.nwxrview
+{
+    overflow: hidden;
+
+    height: 100%;
+    margin: 5px;
+    padding: 10px;
+}
+
+.nwx-total-score
+{
+    display: block;
+    float: right;
+
+    width: 25%;
+    min-height: 100px;
+
+    text-align: center;
+}
+
+.nwx-rview-sum
+{
+    display: block;
+    float: left;
+
+    width: 73%;
+    min-height: 100px;
+}
+
+.nwxrview_attribs
+{
+    margin: 0 0 .5rem 0;
+}
+.nwxrview_attribs ul
+{
+    margin: auto;
+
+    list-style-type: none;
+
+    color: #000;
+}

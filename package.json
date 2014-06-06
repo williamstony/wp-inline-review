@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/williamstony/wp-inline-review/issues"
   },
-  "homepage": "https://github.com/williamstony/wp-inline-review"
+  "homepage": "https://github.com/williamstony/wp-inline-review",
+  "devDependencies": {
+    "gulp-notify": "^1.3.1"
+  }
 }
