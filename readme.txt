@@ -28,6 +28,8 @@ The plugin settings are located under the main "Settings" menu in the WordPress 
 3. Edit or create a new post and scroll to the bottom for entry of attributes.
 
 == Upgrade Notice ==
+= 1.2.0 =
+
 = 1.1.0 =
 Added color picker support. Note: after upgrading you will need to go into the setting page and add a `#` in front of your color codes.
 = 1.0 =
@@ -40,10 +42,10 @@ Initial Release
 == Changelog ==
 
 = 1.1.0 =
-*Added color picker to settings page
-*Added support for color names instead of hex codes only
-*Restructured folders and files
-*Restructured code to be readable
+* Added color picker to settings page
+* Added support for color names instead of hex codes only
+* Restructured folders and files
+* Restructured code to be readable
 
 = 1.0 =
 * Initial release
