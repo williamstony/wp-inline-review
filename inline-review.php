@@ -9,11 +9,26 @@
 
     */
 
-/* Setting our defaults to avoid an error*/
-/*------------------------------*/
+/*-------------------------------
+ *
+ * Some security
+ *
+ *------------------------------*/
+
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+/*-----------------------------------------
+ *
+ * Setting our defaults to avoid an error
+ *
+ *----------------------------------------*/
+
 register_activation_hook( __FILE__, 'nwxrview_defaults' );
+
 function nwxrview_defaults() {
-    $tmp = get_option('nwxrview_options');
+    $tmp = get_option( 'nwxrview_options' );
     if( !is_array( $tmp ) ) {
         $arr = array( "highlight_color" => "#0f0", "border_style" => "Dotted", "header_bg" => "#CCC" );
         update_option( 'nwxrview_options', $arr );
