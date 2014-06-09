@@ -1,45 +1,45 @@
 .nwxbar {
-	background-color: #af0;
-	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-	background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-	-pie-background: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent) 0 0 / 5px 5px #ac0;
-	background-size: 10px 10px;
-	behavior: url(/pie/PIE.htc);
-	border: 1px solid #333;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-	height: 10px;
+  background-color: #af0;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+  -pie-background: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent) 0 0 / 5px 5px #ac0;
+  background-size: 10px 10px;
+  behavior: url(/pie/PIE.htc);
+  border: 1px solid #333;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 10px;
 }
 
 .nwxrview {
-	height: 100%;
-	margin: 5px;
-	overflow: hidden;
-	padding: 10px;
+  height: 100%;
+  margin: 5px;
+  overflow: hidden;
+  padding: 10px;
 }
 
 .nwx-total-score {
-	display: block;
-	float: right;
-	min-height: 100px;
-	text-align: center;
-	width: 25%;
+  display: block;
+  float: right;
+  min-height: 100px;
+  text-align: center;
+  width: 25%;
 }
 
 .nwx-rview-sum {
-	display: block;
-	float: left;
-	min-height: 100px;
-	width: 73%;
+  display: block;
+  float: left;
+  min-height: 100px;
+  width: 73%;
 }
 
 .nwxrview_attribs {
-    margin: 0 0 .5rem 0;
+  margin: 0 0 .5rem 0;
 
- ul {
-      color: #000;
-      list-style-type: none;
-      margin: auto;
+  ul {
+    color: #000;
+    list-style-type: none;
+    margin: auto;
   }
 }

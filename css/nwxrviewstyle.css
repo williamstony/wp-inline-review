@@ -1,5 +1,4 @@
-.nwxbar
-{
+.nwxbar {
     height: 10px;
 
     border: 1px solid #333;
@@ -15,8 +14,7 @@
     behavior: url(/pie/PIE.htc);
 }
 
-.nwxrview
-{
+.nwxrview {
     overflow: hidden;
 
     height: 100%;
@@ -24,8 +22,7 @@
     padding: 10px;
 }
 
-.nwx-total-score
-{
+.nwx-total-score {
     display: block;
     float: right;
 
@@ -35,8 +32,7 @@
     text-align: center;
 }
 
-.nwx-rview-sum
-{
+.nwx-rview-sum {
     display: block;
     float: left;
 
@@ -44,12 +40,10 @@
     min-height: 100px;
 }
 
-.nwxrview_attribs
-{
+.nwxrview_attribs {
     margin: 0 0 .5rem 0;
 }
-.nwxrview_attribs ul
-{
+.nwxrview_attribs ul {
     margin: auto;
 
     list-style-type: none;

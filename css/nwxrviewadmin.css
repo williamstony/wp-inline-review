@@ -1,13 +1,11 @@
 /* Common stuff */
-.picker-wrapper, .slide-wrapper
-{
+.picker-wrapper, .slide-wrapper {
     position: relative;
 
     float: left;
 }
 
-.picker-indicator, .slide-indicator
-{
+.picker-indicator, .slide-indicator {
     position: absolute;
     top: 0;
     left: 0;
@@ -15,16 +13,14 @@
     pointer-events: none;
 }
 
-.picker, .slide
-{
+.picker, .slide {
     float: left;
 
     cursor: crosshair;
 }
 
 /* Normal skin */
-.cp-normal
-{
+.cp-normal {
     float: left;
 
     padding: 5px;
@@ -32,22 +28,18 @@
     border: 2px solid #000;
     background-color: #555;
 }
-.cp-normal .picker
-{
+.cp-normal .picker {
     width: 200px;
     height: 200px;
 }
-.cp-normal .slide
-{
+.cp-normal .slide {
     width: 30px;
     height: 200px;
 }
-.cp-normal .slide-wrapper
-{
+.cp-normal .slide-wrapper {
     margin-left: 10px;
 }
-.cp-normal .picker-indicator
-{
+.cp-normal .picker-indicator {
     width: 5px;
     height: 5px;
 
@@ -61,8 +53,7 @@
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
         filter: alpha(opacity=50);
 }
-.cp-normal .slide-indicator
-{
+.cp-normal .slide-indicator {
     left: -4px;
 
     width: 100%;
@@ -81,40 +72,35 @@
 
 /*Input Boxes
 -------------*/
-input[type=text].nwxheader_bg, input[type=text].nwxhighlight_color, .nwxborder_style
-{
+input[type=text].nwxheader_bg, input[type=text].nwxhighlight_color, .nwxborder_style {
     color: #ddd;
     border: 2px solid #000;
     border-radius: 0;
     background-color: #555;
 }
 
-.nwxrview_save
-{
+.nwxrview_save {
     text-decoration: none;
 
     color: #ddd;
     border: 2px solid #000;
     background: #555;
 }
-.nwxrview_save:hover
-{
+.nwxrview_save:hover {
     background: #000;
 }
 
 /*----------------------
  Options Page Elements
 -----------------------*/
-.nwxrview_opt_page
-{
+.nwxrview_opt_page {
     float: left;
 
     width: 490px;
     margin-right: 10px;
 }
 
-.nwxrview_opt_right
-{
+.nwxrview_opt_right {
     float: left;
 
     width: 290px;
