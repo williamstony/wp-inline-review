@@ -11,7 +11,6 @@
             background-size: 10px 10px;
 
     -pie-background: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent) 0 0/5px 5px #ac0;
-    behavior: url(/pie/PIE.htc);
 }
 
 .nwxrview {
