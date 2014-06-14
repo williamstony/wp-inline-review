@@ -51,7 +51,6 @@ add_filter ( 'the_content', 'nwxrview_get_meta' );
 /* Display the Review box after the post content */
 /*-------------------------------------*/
 function nwxrview_get_meta( $content ) {
-	global $post;
 	$nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true );
 	$nwxrview_opts = get_option( 'nwxrview_options' );
 	$nwxrview_content = '';
@@ -89,35 +88,6 @@ function nwxrview_get_meta( $content ) {
 	}
 }
 
-/*--------------------------------------------
- *
- * Calculation Function
- *
- -------------------------------------------*/
-function nwxrview_calculation ( $scores ) {
-	$nwx_total_calc = 0;
-	$nwx_score = 0;
-	foreach ($scores as $nwx_attribs) {
-		if (!empty($nwx_attribs['name'])) {
-			// Dump scores down and make sure they don't go to 0 or above 10
-			if ($nwx_attribs['score'] / 10 < 1)
-				$nwx_attribs['score'] = 10;
-			if ($nwx_attribs['score'] / 10 > 10)
-				$nwx_attribs['score'] = 100;
-			$nwxrview_calc_content .='<li>' . esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '
-                        <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div>
-                        </li>';
-			$nwx_score += $nwx_attribs['score'];
-			$nwx_total_calc++;
-		}
-	}
-
-	$nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
-	$nwx_total_score = round($nwx_total_score * 2, 0) / 2;
-	return array($nwxrview_calc_content, $nwx_total_score);
-}
-
-
 /*------------------------------------------
  *
  * Ouput Class Build out
@@ -125,15 +95,37 @@ function nwxrview_calculation ( $scores ) {
  *----------------------------------------*/
 class nwxrview_output {
 
-	public $nwxrview_options, $nwxrview_css, $nwxrview_output, $nwxrview_score, $nwxrview_totalscore;
+	public $nwxrview_opts, $nwxrview_css, $nwxrview_output, $nwxrview_score, $nwxrview_totalscore, $nwxrview_meta_data;
 
 	public function __construct( $nwxrview_opts, $nwxrview_meta) {
-
+		global $post;
+		$this->nwxrview_opts = get_option( 'nwxrview_options' );
+		$this->nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true );
 
 	}
 
-	function nwxrview_calc() {
+	function nwxrview_calc( $scores ) {
 
+		$nwx_total_calc = 0;
+		$nwx_score = 0;
+		foreach ($scores as $nwx_attribs) {
+			if (!empty($nwx_attribs['name'])) {
+				// Dump scores down and make sure they don't go to 0 or above 10
+				if ($nwx_attribs['score'] / 10 < 1)
+					$nwx_attribs['score'] = 10;
+				if ($nwx_attribs['score'] / 10 > 10)
+					$nwx_attribs['score'] = 100;
+				$nwxrview_calc_content .='<li>' . esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '
+                        <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div>
+                        </li>';
+				$nwx_score += $nwx_attribs['score'];
+				$nwx_total_calc++;
+			}
+		}
+
+		$nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
+		$nwx_total_score = round($nwx_total_score * 2, 0) / 2;
+		return array($nwxrview_calc_content, $nwx_total_score);
 
 	}
 }
