@@ -108,8 +108,8 @@ echo '<div style="width: 800px;"><p>Enter style settings below. Use hex values w
 /*Validate everything before saving*/
 /*----------------------------*/
 function nwxrview_options_validate($input) {
-	$input['header_bg'] = sanitize_text_field( $input['header_bg'] );
-	$input['border_style'] = sanitize_text_field( $input['border_style'] );
+	$input['header_bg']       = sanitize_text_field( $input['header_bg'] );
+	$input['border_style']    = sanitize_text_field( $input['border_style'] );
 	$input['highlight_color'] = sanitize_text_field( $input['highlight_color'] );
 	return $input; //Validated
 }

@@ -24,12 +24,12 @@ function nwxrview_meta_boxes_setup () {
 function nwxrview_add_meta_boxes() {
 
 	add_meta_box (
-		'nwxrview',                         //Unique ID
+		'nwxrview',                                 //Unique ID
 		esc_html__( 'Review Data', 'nwxrview' ),    //Title
-		'nwxrview_meta_box',        //Callback function
-		'post',                                              //Admin page (or post type)
-		'normal',                                             //Context
-		'default'                                         //Priority
+		'nwxrview_meta_box',                        //Callback function
+		'post',                                     //Admin page (or post type)
+		'normal',                                   //Context
+		'default'                                   //Priority
 	);
 }
 

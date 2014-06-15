@@ -11,9 +11,9 @@ class nwxrview_output {
 	public function __construct( ) {
 
 
-		$this->options = get_option( 'nwxrview_options' );
+		$this->options   = get_option( 'nwxrview_options' );
 		$this->highlight = $this->options['highlight_color'];
-		$this->border = $this->options['border_style'];
+		$this->border    = $this->options['border_style'];
 		$this->header_bg = $this->options['header_bg'];
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontstyles' ) );
