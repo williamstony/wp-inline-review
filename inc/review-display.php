@@ -51,6 +51,10 @@ class nwxrview_output {
             .nwx-total-score {
                 border-left: 2px solid ' . esc_html($this->highlight) . ';
                 border-bottom: 2px solid ' . esc_html($this->highlight) . ';
+             }
+
+             .nwxrview ul li {
+                list-style-type: none;
              }';
 
 		echo '<style type="text/css" media="screen">' . $nwxrview_css . '</style>';
