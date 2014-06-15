@@ -45,6 +45,7 @@ Initial Release
 * Moved output class to OO format
 * Restructured plugin files
 * More responsive work
+* Added support for "Use My Own Styles" setting to override embedded styles
 
 = 1.1.0 =
 * Added color picker to settings page

@@ -40,7 +40,7 @@ add_settings_field('rview_own_styles', 'Use My Own Styles:', 'nwxrview_own_style
 }
 
 function  nwxrview_text() {
-echo '<div style="width: 800px;"><p>Enter style settings below. Use hex values with the "#" for the colors. ex: #020202</p><strong>Using The Color Picker:</strong> To use the color picker at the bottom of this page, first select the field you\'d like to change the color of. Then use the color picker at the bottom to find the color you\'d like. The valuse of the field ex: #010101 will change as you move around the color selection area. When you are satisified with the colors simply click "Save Changes" and you are done.</div><br><div class="nwxrview_opt_page">';
+echo '<div style="width: 800px;"><p>Enter style settings below. Use hex values with the "#" for the colors. ex: #020202</p><strong>Using The Color Picker:</strong> To use the color picker at the bottom of this page, first select the field you\'d like to change the color of. Then use the color picker at the bottom to find the color you\'d like. The valuse of the field ex: #010101 will change as you move around the color selection area. When you are satisified with the colors simply click "Save Changes" and you are done.<p> Use the "Use My Own Styles" to override the embedded styles set by this page.</p></div><br><div class="nwxrview_opt_page">';
 	}
 
 	/*Field callback functions */
