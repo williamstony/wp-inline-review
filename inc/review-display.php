@@ -15,6 +15,7 @@ class nwxrview_output {
 		$this->highlight = $this->options['highlight_color'];
 		$this->border    = $this->options['border_style'];
 		$this->header_bg = $this->options['header_bg'];
+		$this->own_style = $this->options['own_style'];
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontstyles' ) );
 		add_action ( 'wp_head', array( $this, 'css') );
@@ -33,6 +34,10 @@ class nwxrview_output {
 
 	function css () {
 		$nwxrview_css = '';
+
+		if( $this->own_style == 'yes' ) {
+			return;
+		}
 
 		$nwxrview_css .= '
             .nwxrview {

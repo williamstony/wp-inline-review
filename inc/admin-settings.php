@@ -35,6 +35,7 @@ add_settings_section( 'main_section', '', 'nwxrview_text', 'rview-admin' );
 add_settings_field( 'rview_header_bg', 'Header Backgrounds:', 'nwxrview_header_bg', 'rview-admin', 'main_section' );
 add_settings_field( 'rview_highlight_color', 'Highlight color(includes bars):', 'nwxrview_highlight_color', 'rview-admin', 'main_section' );
 add_settings_field( 'rview_border_style', 'Border Style:', 'nwxrview_border_style', 'rview-admin', 'main_section' );
+add_settings_field('rview_own_styles', 'Use My Own Styles:', 'nwxrview_own_style', 'rview-admin', 'main_section');
 
 }
 
@@ -63,6 +64,16 @@ echo '<div style="width: 800px;"><p>Enter style settings below. Use hex values w
 	function nwxrview_header_bg() {
 	$options = get_option( 'nwxrview_options' );
 	echo '<input id="plugin_text_color" class="nwxheader_bg" name="nwxrview_options[header_bg]" size="40" type="text" onFocus="setId(this.id)" value="' . $options['header_bg'] . '" />';
+	}
+
+	function nwxrview_own_style () {
+		$options = get_option( 'nwxrview_options' );
+		if( $options['own_style'] == 'yes' ){
+			$checked = 'checked';
+		}else {
+			$checked = '';
+		}
+		echo '<input type="checkbox" name="nwxrview_options[own_style]" id="rview_own_styles" value="yes"' . $checked . ' />';
 	}
 
 	/* Options Page Function */

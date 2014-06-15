@@ -26,7 +26,7 @@
     padding: 5px;
 
     border: 2px solid #000;
-    background-color: #555;
+    background-color: #777;
 }
 .cp-normal .picker {
     width: 200px;
@@ -76,7 +76,7 @@ input[type=text].nwxheader_bg, input[type=text].nwxhighlight_color, .nwxborder_s
     color: #ddd;
     border: 2px solid #000;
     border-radius: 0;
-    background-color: #555;
+    background-color: #777;
 }
 
 .nwxrview_save {
@@ -84,7 +84,7 @@ input[type=text].nwxheader_bg, input[type=text].nwxhighlight_color, .nwxborder_s
 
     color: #ddd;
     border: 2px solid #000;
-    background: #555;
+    background: #777;
 }
 .nwxrview_save:hover {
     background: #000;
