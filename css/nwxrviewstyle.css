@@ -16,7 +16,7 @@
 .nwxrview {
     overflow: hidden;
 
-    height: 100%;
+    height: auto;
     margin: 5px;
     padding: 10px;
 }

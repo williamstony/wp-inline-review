@@ -58,3 +58,5 @@ require_once( plugin_dir_path( __FILE__ ) . 'inc/add-review.php' );
  *---------------------------*/
 
 require_once( plugin_dir_path( __FILE__  ) . 'inc/admin-settings.php' );
+
+$test1 = new nwxrview_output();

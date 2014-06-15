@@ -1,5 +1,5 @@
 .nwxbar{height:10px;border:1px solid #333;border-top-right-radius:5px;border-bottom-right-radius:5px;background-color:#af0;background-image:-webkit-linear-gradient(45deg,rgba(255,255,255,.2)25%,transparent 25%,transparent 50%,rgba(255,255,255,.2)50%,rgba(255,255,255,.2)75%,transparent 75%,transparent);background-image:linear-gradient(45deg,rgba(255,255,255,.2)25%,transparent 25%,transparent 50%,rgba(255,255,255,.2)50%,rgba(255,255,255,.2)75%,transparent 75%,transparent);-webkit-background-size:10px 10px;background-size:10px 10px;-pie-background:linear-gradient(45deg,rgba(255,255,255,.2)25%,transparent 25%,transparent 50%,rgba(255,255,255,.2)50%,rgba(255,255,255,.2)75%,transparent 75%,transparent) 0 0/5px 5px #ac0}
-.nwxrview{overflow:hidden;height:100%;margin:5px;padding:10px}
+.nwxrview{overflow:hidden;height:auto;margin:5px;padding:10px}
 .nwx-total-score{display:block;float:right;width:25%;min-height:100px;text-align:center}
 .nwx-rview-sum{display:block;float:left;width:73%;min-height:100px}
 .nwxrview_attribs{margin:0 0 .5rem}
