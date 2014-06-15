@@ -99,7 +99,6 @@ class nwxrview_output {
 		$this->nwxmeta = get_post_meta( get_the_id(), 'nwxrview', true );
 		$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 		$original = $content;
-		// print_r($this) ;
 		$nwxrview_content = '';
 		if ( !empty($this->nwxmeta) && is_array($this->nwxmeta) && is_single() ) {
 			$nwxrview_content .= '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
