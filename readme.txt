@@ -41,6 +41,10 @@ Initial Release
 
 == Changelog ==
 
+= 1.2.0 =
+* Moved output class to OO format
+* Restructured plugin files
+
 = 1.1.0 =
 * Added color picker to settings page
 * Added support for color names instead of hex codes only
