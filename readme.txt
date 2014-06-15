@@ -44,6 +44,7 @@ Initial Release
 = 1.2.0 =
 * Moved output class to OO format
 * Restructured plugin files
+* More responsive work
 
 = 1.1.0 =
 * Added color picker to settings page
