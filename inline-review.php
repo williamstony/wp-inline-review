@@ -34,7 +34,7 @@ function nwxrview_defaults() {
         update_option( 'nwxrview_options', $arr );
     }
 }
-
+$admin_section = plugin_dir_path( __FILE__ ) . 'inc/admin-settings.php';
 /*------------------------------------
  *
  * Including Review Display Function
@@ -57,6 +57,16 @@ require_once( plugin_dir_path( __FILE__ ) . 'inc/add-review.php' );
  *
  *---------------------------*/
 
-require_once( plugin_dir_path( __FILE__  ) . 'inc/admin-settings.php' );
+require_once( apply_filters( 'nwxrview_settings_page', $admin_section ) );
+
 
 $test1 = new nwxrview_output();
+
+/* Working filter test, awesome!
+add_filter( 'nwxrview_settings_page', 'nwxrview_pro_settings' );
+
+function nwxrview_pro_settings() {
+	$new_admin = plugin_dir_path( __FILE__  ) . 'inc/admin-pro.php';
+	return $new_admin;
+}
+*/
