@@ -46,6 +46,7 @@ Initial Release
 * Restructured plugin files
 * More responsive work
 * Added support for "Use My Own Styles" setting to override embedded styles
+* Added support for some filters
 
 = 1.1.0 =
 * Added color picker to settings page
