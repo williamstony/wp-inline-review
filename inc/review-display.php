@@ -120,7 +120,8 @@ class nwxrview_output {
                         <h1><span itemprop="ratingValue">' . esc_html($nwxrview_calc_data[1]) . '</span></h1>
                     </div>
                     </div>';
-			$original .= $nwxrview_content;
+
+			$original .= apply_filters( 'nwxrview_output', $nwxrview_content );
 			return $original;
 		} else {
 			return $original;
