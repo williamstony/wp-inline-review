@@ -88,7 +88,7 @@ class nwxrview_output {
 
 		$nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
 		$nwx_total_score = round($nwx_total_score * 2, 0) / 2;
-		return array($nwxrview_calc_content, $nwx_total_score);
+		return array( apply_filters( 'nwxrview_attribs', $nwxrview_calc_content ), apply_filters( 'nwxrview_score_final', $nwx_total_score ) );
 
 
 	}
