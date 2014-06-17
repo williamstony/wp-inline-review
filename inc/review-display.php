@@ -62,7 +62,7 @@ class nwxrview_output {
                 list-style-type: none;
              }';
 
-		echo '<style type="text/css" media="screen">' . $nwxrview_css . '</style>';
+		echo '<style type="text/css" media="screen">' . apply_filters( 'nwxrview_css', $nwxrview_css ) . '</style>';
 
 	}
 
