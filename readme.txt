@@ -47,6 +47,7 @@ Initial Release
 * More responsive work
 * Added support for "Use My Own Styles" setting to override embedded styles
 * Added support for some filters
+* Added the option to move the review box to the top of the post
 
 = 1.1.0 =
 * Added color picker to settings page
