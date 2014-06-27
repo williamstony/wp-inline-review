@@ -41,19 +41,31 @@ function nwxrview_meta_box( $object, $box ) {
 
 	<p>
 	<label for="nwxrview"><?php _e( "Add a review to this post", 'example' ); ?> </label>
-	<br>
+	</p>
+	<p>
+
+	Review Box Position: <select name="nwxrview-position">
+													<option value="default">Default (Bottom)</option>
+													<option value="top">Top</option>
+												</select>
+	</p>
+	<p>
 
 	Summary: <textarea class="widefat" type="text" name="nwx-rview-sum" id="nwxrview_summary" value="" size="50" ><?php echo htmlentities( get_post_meta( get_the_id(), 'nwx-rview-sum', true ) );  ?></textarea>
 
 	<?php for ( $w=1; $w <= 10; $w++ ){ ?>
 
 		<b>Attribute <?php echo $w; ?>:</b><input type="text" name="nwxrview[<?php echo $w; ?>][name]" id="nwxrview-<?php echo $w; ?>" value="<?php if( !empty( $nwxrview_meta_data[$w]['name'] )) echo esc_html_e( $nwxrview_meta_data[$w]['name'], 'nwxrview' ); ?>" size="20" />
+
 		<b>Score:</b><input type="range" id="nwxrview-<?php echo $w; ?>range" name="nwxrview-<?php echo $w; ?>range" min="0" max="100" value="<?php if( !empty( $nwxrview_meta_data[$w]['score'] ) ) echo $nwxrview_meta_data[$w]['score']; ?>" onchange="nwxUpdateTextInput<?php echo $w; ?>(this.value);">
+
 		<input type="text" id="nwxrview[<?php echo $w; ?>][score]" name="nwxrview[<?php echo $w; ?>][score]" value="<?php if( !empty( $nwxrview_meta_data[$w]['score'] ) ) echo $nwxrview_meta_data[$w]['score']; ?>"  style="width:50px; opacity: 0.7;" />
+
 		<script type="text/javascript">
 			function nwxUpdateTextInput<?php echo esc_js( $w ); ?>(val) {
 				document.getElementById('nwxrview[<?php echo $w; ?>][score]').value=val;
 			}</script>
+
 		</p>
 	<?php } }
 

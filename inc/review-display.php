@@ -71,11 +71,15 @@ class nwxrview_output {
 		$nwx_total_calc = 0;
 		$nwx_score = 0;
 		$nwxrview_calc_content = '';
+
 		foreach ($calcs as $nwx_attribs) {
+
 			if (!empty($nwx_attribs['name'])) {
 				// Dump scores down and make sure they don't go to 0 or above 10
+
 				if ($nwx_attribs['score'] / 10 < 1)
 					$nwx_attribs['score'] = 10;
+
 				if ($nwx_attribs['score'] / 10 > 10)
 					$nwx_attribs['score'] = 100;
 				$nwxrview_calc_content .='<li>' . esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '
@@ -88,6 +92,7 @@ class nwxrview_output {
 
 		$nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
 		$nwx_total_score = round($nwx_total_score * 2, 0) / 2;
+
 		return array( apply_filters( 'nwxrview_attribs', $nwxrview_calc_content ), apply_filters( 'nwxrview_score_final', $nwx_total_score ) );
 
 
@@ -95,11 +100,13 @@ class nwxrview_output {
 
 	function output ( $content ) {
 		global $post;
+
 		$this->review_sum = get_post_meta(get_the_id(), 'nwx-rview-sum', true);
 		$this->nwxmeta = get_post_meta( get_the_id(), 'nwxrview', true );
 		$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 		$original = $content;
 		$nwxrview_content = '';
+
 		if ( !empty($this->nwxmeta) && is_array($this->nwxmeta) && is_single() ) {
 			$nwxrview_content .= '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
@@ -108,22 +115,25 @@ class nwxrview_output {
                     </div>
                     <span itemprop="name" style="display:none">' . esc_html(get_the_title(get_the_id())) . '</span> <ul class="nwxrview_attribs">'
 			                     . $nwxrview_calc_data[0] . '</ul><div class="nwx-rview-sum">
-                        <div style="background: ' . esc_html($this->header_bg) . '; height: 30px; padding: 0px 5px; color: ' . esc_html($this->highlight) . ';">
+                        <div class="nwxrview_header" style="background: ' . esc_html($this->header_bg) . '; height: 30px; color: ' . esc_html($this->highlight) . ';">
                             <strong>Summary:</strong>
                         </div>
                             <span itemprop="description">' . esc_html($this->review_sum) . '</span>
                     </div>
                     <div class="nwx-total-score">
-                        <div style="background: ' . esc_html($this->header_bg) . '; height: 30px; color: ' . esc_html($this->highlight) . '">
-                            Total Score:
+                        <div class="nwxrview_header" style="background: ' . esc_html($this->header_bg) . '; height: 30px; color: ' . esc_html($this->highlight) . '">
+                            <strong>Total Score:</strong>
                         </div>
                         <h1><span itemprop="ratingValue">' . esc_html($nwxrview_calc_data[1]) . '</span></h1>
                     </div>
                     </div>';
 
-			$original .= apply_filters( 'nwxrview_output', $nwxrview_content );
-			return $original;
+			$nwxrview_output = $original . apply_filters( 'nwxrview_output', $nwxrview_content );
+			
+			return $nwxrview_output;
+
 		} else {
+
 			return $original;
 
 		}

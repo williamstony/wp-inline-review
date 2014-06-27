@@ -14,7 +14,7 @@
 
 .nwxrview {
   height: auto;
-  margin: 5px;
+  margin: 10px;
   overflow: hidden;
   padding: 10px;
 }
@@ -22,7 +22,7 @@
 .nwx-total-score {
   display: block;
   float: right;
-  min-height: 100px;
+  min-height: 104px;
   text-align: center;
   width: 25%;
 }
@@ -30,8 +30,12 @@
 .nwx-rview-sum {
   display: block;
   float: left;
-  min-height: 100px;
+  min-height: 104px;
   width: 73%;
+}
+
+.nwxrview_header {
+  padding: 5px;
 }
 
 .nwxrview_attribs {
