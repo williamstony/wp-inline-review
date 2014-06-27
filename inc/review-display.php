@@ -82,6 +82,7 @@ class nwxrview_output {
 
 				if ($nwx_attribs['score'] / 10 > 10)
 					$nwx_attribs['score'] = 100;
+
 				$nwxrview_calc_content .='<li>' . esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '
                         <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div>
                         </li>';
@@ -103,11 +104,13 @@ class nwxrview_output {
 
 		$this->review_sum = get_post_meta(get_the_id(), 'nwx-rview-sum', true);
 		$this->nwxmeta = get_post_meta( get_the_id(), 'nwxrview', true );
+		$this->nwxrview_position = get_post_meta( get_the_id(), 'nwxrview-position', true );
 		$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 		$original = $content;
 		$nwxrview_content = '';
 
 		if ( !empty($this->nwxmeta) && is_array($this->nwxmeta) && is_single() ) {
+			print_r($this->nwxrview_position);
 			$nwxrview_content .= '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
@@ -128,8 +131,17 @@ class nwxrview_output {
                     </div>
                     </div>';
 
-			$nwxrview_output = $original . apply_filters( 'nwxrview_output', $nwxrview_content );
-			
+                if ( $this->nwxrview_position == 'top' ){
+
+                	$nwxrview_output = apply_filters( 'nwxrview_output', $nwxrview_content ) . $original;
+
+                } else {
+
+					$nwxrview_output = $original . apply_filters( 'nwxrview_output', $nwxrview_content );
+
+				}
+
+
 			return $nwxrview_output;
 
 		} else {

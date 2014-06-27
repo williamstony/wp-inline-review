@@ -45,9 +45,9 @@ function nwxrview_meta_box( $object, $box ) {
 	<p>
 
 	Review Box Position: <select name="nwxrview-position">
-													<option value="default">Default (Bottom)</option>
-													<option value="top">Top</option>
-												</select>
+							<option value="default">Default (Bottom)</option>
+							<option value="top">Top</option>
+						</select>
 	</p>
 	<p>
 
@@ -96,6 +96,7 @@ function save_nwxrview_meta( $post_id, $post ) {
 
 		update_post_meta( $post_id, 'nwxrview', $_POST['nwxrview'] );
 		update_post_meta( $post_id, 'nwx-rview-sum', $_POST['nwx-rview-sum'] );
+		update_post_meta( $post_id, 'nwxrview-position', $_POST['nwxrview-position'] );
 	}
 
 }
