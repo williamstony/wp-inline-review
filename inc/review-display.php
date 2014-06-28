@@ -99,7 +99,15 @@ class nwxrview_output {
 
 	}
 
+	function shortcode ( $atts, $content = null ) {
+
+
+		return apply_filters( 'nwxrview_output', $this->nwxrview_content );
+
+	}
+
 	function output ( $content ) {
+
 		global $post;
 
 		$this->review_sum = get_post_meta(get_the_id(), 'nwx-rview-sum', true);
@@ -107,11 +115,11 @@ class nwxrview_output {
 		$this->nwxrview_position = get_post_meta( get_the_id(), 'nwxrview-position', true );
 		$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 		$original = $content;
-		$nwxrview_content = '';
+		$this->nwxrview_content = '';
 
 		if ( !empty($this->nwxmeta) && is_array($this->nwxmeta) && is_single() ) {
 			print_r($this->nwxrview_position);
-			$nwxrview_content .= '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+			$this->nwxrview_content = '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
                         <span itemprop="name" style="display:none">' . esc_html(get_the_author_link()) . '</span>
@@ -133,11 +141,17 @@ class nwxrview_output {
 
                 if ( $this->nwxrview_position == 'top' ){
 
-                	$nwxrview_output = apply_filters( 'nwxrview_output', $nwxrview_content ) . $original;
+                	$nwxrview_output = apply_filters( 'nwxrview_output', $this->nwxrview_content ) . $original;
+
+                } elseif ( $this->nwxrview_position == 'shortcode') {
+
+                	$nwxrview_output = $original;
+
+                	add_shortcode( 'nwxrview_box', array( $this, 'shortcode' ) );
 
                 } else {
 
-					$nwxrview_output = $original . apply_filters( 'nwxrview_output', $nwxrview_content );
+					$nwxrview_output = $original . apply_filters( 'nwxrview_output', $this->nwxrview_content );
 
 				}
 
@@ -150,5 +164,7 @@ class nwxrview_output {
 
 		}
 
+
 	}
+
 }

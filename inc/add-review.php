@@ -47,6 +47,7 @@ function nwxrview_meta_box( $object, $box ) {
 	Review Box Position: <select name="nwxrview-position">
 							<option value="default">Default (Bottom)</option>
 							<option value="top">Top</option>
+							<option value="shortcode">Shortcode</option>
 						</select>
 	</p>
 	<p>
