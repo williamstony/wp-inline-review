@@ -4,7 +4,7 @@
     Plugin URI: http://tonyw.io/inline-review
     Description: A Review engine for WordPress
     Author: TonyW
-    Version: 1.1.0
+    Version: 1.2.0
 
 
     */
