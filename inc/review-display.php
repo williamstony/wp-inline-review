@@ -10,7 +10,6 @@ class nwxrview_output {
 
 	public function __construct( ) {
 
-
 		$this->options   = get_option( 'nwxrview_options' );
 		$this->highlight = $this->options['highlight_color'];
 		$this->border    = $this->options['border_style'];
@@ -22,8 +21,6 @@ class nwxrview_output {
 
 		add_filter ( 'the_content', array( $this, 'output') );
 
-
-
 	}
 
 	function frontstyles () {
@@ -33,13 +30,16 @@ class nwxrview_output {
 	}
 
 	function css () {
+
 		$nwxrview_css = '';
 
 		if( $this->own_style == 'yes' ) {
+
 			return;
+
 		}
 
-		$nwxrview_css .= '
+		$nwxrview_css = '
             .nwxrview {
                border: 2px ' . esc_html($this->border) . ' ' . esc_html($this->highlight) . ';
              }
@@ -86,8 +86,10 @@ class nwxrview_output {
 				$nwxrview_calc_content .='<li>' . esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '
                         <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div>
                         </li>';
+
 				$nwx_score += $nwx_attribs['score'];
 				$nwx_total_calc++;
+
 			}
 		}
 
@@ -100,7 +102,6 @@ class nwxrview_output {
 	}
 
 	function shortcode ( $atts, $content = null ) {
-
 
 		return apply_filters( 'nwxrview_output', $this->nwxrview_content );
 
