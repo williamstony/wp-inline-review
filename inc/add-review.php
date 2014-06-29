@@ -36,8 +36,15 @@ function nwxrview_add_meta_boxes() {
 /* Display the post meta box. */
 /*-----------------------*/
 function nwxrview_meta_box( $object, $box ) {
-	$nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true);
-	wp_nonce_field( basename( __FILE__ ), 'nwxrview_nonce' ); ?>
+
+	wp_nonce_field( basename( __FILE__ ), 'nwxrview_nonce' );
+
+	$nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true );
+	$nwxrview_tmpvalue = get_post_meta( get_the_id(), 'nwxrview-position', true );
+
+	$nwxrview_tmppos = array( 'bottom', 'top', 'shortcode' );
+
+	$nwxrview_utilities = new nwxrview_util(); ?>
 
 	<p>
 	<label for="nwxrview"><?php _e( "Add a review to this post", 'nwxrview' ); ?> </label>
@@ -45,9 +52,7 @@ function nwxrview_meta_box( $object, $box ) {
 	<p>
 
 	Review Box Position:  <select name="nwxrview-position">
-														<option value="default">Default (Bottom)</option>
-														<option value="top">Top</option>
-														<option value="shortcode">Shortcode</option>
+													<?php echo $nwxrview_utilities->select_build ($nwxrview_tmpvalue, $nwxrview_tmppos); ?>
 												</select>
 	<br><strong>Note:</strong> If "Shortcode" is selected you will need to place "<strong>[nwxrview_box]</strong>"(without the quotes) in your post to display the review box.
 	</p>

@@ -35,6 +35,15 @@ function nwxrview_defaults() {
     }
 }
 $admin_section = plugin_dir_path( __FILE__ ) . 'inc/admin-settings.php';
+
+/*-----------------------------
+ *
+ * Including Utilities
+ *
+ *----------------------------*/
+
+require_once (plugin_dir_path( __FILE__ ) . 'inc/class-nwxrview-util.php');
+
 /*------------------------------------
  *
  * Including Review Display Function

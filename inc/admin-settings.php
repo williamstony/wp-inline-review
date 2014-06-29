@@ -54,11 +54,9 @@ function nwxrview_highlight_color() {
 function nwxrview_border_style() {
 	$options    = get_option( 'nwxrview_options' );
 	$nwx_styles = array( 'Solid', 'Dashed', 'Dotted', 'Hidden' );
+	$nwxrview_utilities = new nwxrview_util();
 	echo '<select id="style_select" class="nwxborder_style" name="nwxrview_options[border_style]" />';
-	foreach ( $nwx_styles as $styles ) {
-		$selection = ( $options['border_style'] == $styles ) ? 'selected="selected"' : ' ';
-		echo '<option value="' . $styles . '"' . $selection . '>' . $styles . '</option>';
-	}
+	echo $nwxrview_utilities->select_build ($options['border_style'], $nwx_styles);
 	echo '</select>';
 }
 
