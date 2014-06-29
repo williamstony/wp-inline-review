@@ -17,7 +17,7 @@
     overflow: hidden;
 
     height: auto;
-    margin: 5px;
+    margin: 10px;
     padding: 10px;
 }
 
@@ -26,7 +26,7 @@
     float: right;
 
     width: 25%;
-    min-height: 100px;
+    min-height: 104px;
 
     text-align: center;
 }
@@ -36,7 +36,11 @@
     float: left;
 
     width: 73%;
-    min-height: 100px;
+    min-height: 104px;
+}
+
+.nwxrview_header {
+    padding: 5px;
 }
 
 .nwxrview_attribs {

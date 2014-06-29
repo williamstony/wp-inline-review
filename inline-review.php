@@ -4,7 +4,7 @@
     Plugin URI: http://tonyw.io/inline-review
     Description: A Review engine for WordPress
     Author: TonyW
-    Version: 1.1.0
+    Version: 1.2.0
 
 
     */
@@ -30,11 +30,20 @@ register_activation_hook( __FILE__, 'nwxrview_defaults' );
 function nwxrview_defaults() {
     $tmp = get_option( 'nwxrview_options' );
     if( !is_array( $tmp ) ) {
-        $arr = array( "highlight_color" => "#0f0", "border_style" => "Dotted", "header_bg" => "#CCC" );
+        $arr = array( "highlight_color" => "#0f0", "border_style" => "Dotted", "header_bg" => "#CCC", "own_style" => "0" );
         update_option( 'nwxrview_options', $arr );
     }
 }
 $admin_section = plugin_dir_path( __FILE__ ) . 'inc/admin-settings.php';
+
+/*-----------------------------
+ *
+ * Including Utilities
+ *
+ *----------------------------*/
+
+require_once (plugin_dir_path( __FILE__ ) . 'inc/class-nwxrview-util.php');
+
 /*------------------------------------
  *
  * Including Review Display Function
