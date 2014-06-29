@@ -1,7 +1,23 @@
 <?php
+/*----------------------------------
+ *
+ * Utility class for Inline Review
+ *
+ *---------------------------------*/
 
 class nwxrview_util {
 
+  /*----------------------------------
+   *
+   * Builds out <option> for selects.
+   *
+   * You pass in the saved select value
+   * and an array of possible values.
+   *
+   * Returned is the <option> part of the form
+   * with the saved value selected.
+   *
+   *----------------------------------*/
   public function select_build ( $compare, $opt_value ) {
 
     $opt_form = '';
