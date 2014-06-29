@@ -30,8 +30,10 @@ The plugin settings are located under the main "Settings" menu in the WordPress 
 == Upgrade Notice ==
 = 1.2.0 =
 
+
 = 1.1.0 =
 Added color picker support. Note: after upgrading you will need to go into the setting page and add a `#` in front of your color codes.
+
 = 1.0 =
 Initial Release
 

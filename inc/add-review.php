@@ -40,15 +40,16 @@ function nwxrview_meta_box( $object, $box ) {
 	wp_nonce_field( basename( __FILE__ ), 'nwxrview_nonce' ); ?>
 
 	<p>
-	<label for="nwxrview"><?php _e( "Add a review to this post", 'example' ); ?> </label>
+	<label for="nwxrview"><?php _e( "Add a review to this post", 'nwxrview' ); ?> </label>
 	</p>
 	<p>
 
-	Review Box Position: <select name="nwxrview-position">
-							<option value="default">Default (Bottom)</option>
-							<option value="top">Top</option>
-							<option value="shortcode">Shortcode</option>
-						</select>
+	Review Box Position:  <select name="nwxrview-position">
+														<option value="default">Default (Bottom)</option>
+														<option value="top">Top</option>
+														<option value="shortcode">Shortcode</option>
+												</select>
+	<br><strong>Note:</strong> If "Shortcode" is selected you will need to place "<strong>[nwxrview_box]</strong>"(without the quotes) in your post to display the review box.
 	</p>
 	<p>
 

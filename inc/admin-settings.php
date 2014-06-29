@@ -123,6 +123,7 @@ function nwxrview_options_validate( $input ) {
 	$input['header_bg']       = sanitize_text_field( $input['header_bg'] );
 	$input['border_style']    = sanitize_text_field( $input['border_style'] );
 	$input['highlight_color'] = sanitize_text_field( $input['highlight_color'] );
+	$input['own_style']       = sanitize_option( 'own_style', $input['own_style']);
 
 	return $input; //Validated
 }

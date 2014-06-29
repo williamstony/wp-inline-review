@@ -8,7 +8,7 @@ class nwxrview_output {
 
 	public $options, $nwxmeta;
 
-	public function __construct( ) {
+	public function __construct () {
 
 		$this->options   = get_option( 'nwxrview_options' );
 		$this->highlight = $this->options['highlight_color'];
@@ -16,7 +16,7 @@ class nwxrview_output {
 		$this->header_bg = $this->options['header_bg'];
 		$this->own_style = $this->options['own_style'];
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'frontstyles' ) );
+		add_action ( 'wp_enqueue_scripts', array( $this, 'frontstyles' ) );
 		add_action ( 'wp_head', array( $this, 'css') );
 
 		add_filter ( 'the_content', array( $this, 'output') );
@@ -119,7 +119,7 @@ class nwxrview_output {
 		$this->nwxrview_content = '';
 
 		if ( !empty($this->nwxmeta) && is_array($this->nwxmeta) && is_single() ) {
-			print_r($this->nwxrview_position);
+
 			$this->nwxrview_content = '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
@@ -142,22 +142,22 @@ class nwxrview_output {
 
                 if ( $this->nwxrview_position == 'top' ){
 
-                	$nwxrview_output = apply_filters( 'nwxrview_output', $this->nwxrview_content ) . $original;
+                	$nwxrview_out = apply_filters( 'nwxrview_output', $this->nwxrview_content ) . $original;
 
                 } elseif ( $this->nwxrview_position == 'shortcode') {
 
-                	$nwxrview_output = $original;
+                	$nwxrview_out = $original;
 
                 	add_shortcode( 'nwxrview_box', array( $this, 'shortcode' ) );
 
                 } else {
 
-					$nwxrview_output = $original . apply_filters( 'nwxrview_output', $this->nwxrview_content );
+									$nwxrview_out = $original . apply_filters( 'nwxrview_output', $this->nwxrview_content );
 
-				}
+								}
 
 
-			return $nwxrview_output;
+			return $nwxrview_out;
 
 		} else {
 
