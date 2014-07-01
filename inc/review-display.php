@@ -114,11 +114,12 @@ class NwxrviewOutput {
 		$this->review_sum = get_post_meta( get_the_id(), 'nwx-rview-sum', true );
 		$this->nwxmeta = get_post_meta( get_the_id(), 'nwxrview', true );
 		$this->nwxrview_position = get_post_meta( get_the_id(), 'nwxrview-position', true );
-		$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 		$original = $content;
 		$this->nwxrview_content  = '';
 
 		if ( ! empty( $this->nwxmeta ) && is_array( $this->nwxmeta ) && is_single() ) {
+
+			$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 
 			$this->nwxrview_content = '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
