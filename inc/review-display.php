@@ -117,7 +117,7 @@ class NwxrviewOutput {
 		$original = $content;
 		$this->nwxrview_content  = '';
 
-		if ( ! empty( $this->nwxmeta ) && is_array( $this->nwxmeta ) && is_single() ) {
+		if ( ! empty( $this->nwxmeta ) && is_array( $this->nwxmeta ) /*&& is_single()*/ ) {
 
 			$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 
@@ -141,6 +141,7 @@ class NwxrviewOutput {
                     </div>
                     </div>';
 
+			// feels hackish. I don't like it. But it works.
 			if ( $this->nwxrview_position == 'top' ){
 
 				$nwxrview_out = apply_filters( 'nwxrview_output', $this->nwxrview_content ) . $original;
@@ -150,6 +151,10 @@ class NwxrviewOutput {
 				$nwxrview_out = $original;
 
 				add_shortcode( 'nwxrview_box', array( $this, 'shortcode' ) );
+
+			} elseif ( is_home() && $this->nwxrview_position == 'bottom' && strpos( $post->post_content, '<!--more-->' ) ) {
+
+				$nwxrview_out = $original;
 
 			} else {
 
