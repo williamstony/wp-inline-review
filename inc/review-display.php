@@ -4,11 +4,11 @@
  * Ouput Class Build out
  *
  *----------------------------------------*/
-class nwxrview_output {
+class NwxrviewOutput {
 
 	public $options, $nwxmeta;
 
-	public function __construct () {
+	public function __construct() {
 
 		$this->options   = get_option( 'nwxrview_options' );
 		$this->highlight = $this->options['highlight_color'];
@@ -16,24 +16,24 @@ class nwxrview_output {
 		$this->header_bg = $this->options['header_bg'];
 		$this->own_style = $this->options['own_style'];
 
-		add_action ( 'wp_enqueue_scripts', array( $this, 'frontstyles' ) );
-		add_action ( 'wp_head', array( $this, 'css') );
+		add_action( 'wp_enqueue_scripts', array( $this, 'frontstyles' ) );
+		add_action( 'wp_head', array( $this, 'css' ) );
 
-		add_filter ( 'the_content', array( $this, 'output') );
+		add_filter( 'the_content', array( $this, 'output' ) );
 
 	}
 
-	function frontstyles () {
+	function frontstyles() {
 
-		wp_register_style ( 'nwxrview',  plugins_url('css/nwxrviewstyle.min.css', dirname( __FILE__ ) ) );
-		wp_enqueue_style ( 'nwxrview' );
+		wp_register_style( 'nwxrview',  plugins_url( 'css/nwxrviewstyle.min.css', dirname( __FILE__ ) ) );
+		wp_enqueue_style( 'nwxrview' );
 	}
 
-	function css () {
+	function css() {
 
 		$nwxrview_css = '';
 
-		if( $this->own_style == 'yes' ) {
+		if ( $this->own_style == 'yes' ) {
 
 			return;
 
@@ -41,21 +41,21 @@ class nwxrview_output {
 
 		$nwxrview_css = '
             .nwxrview {
-               border: 2px ' . esc_html($this->border) . ' ' . esc_html($this->highlight) . ';
+               border: 2px ' . esc_html( $this->border ) . ' ' . esc_html( $this->highlight ) . ';
              }
 
             .nwxbar {
-               background-color: ' . esc_html($this->highlight) . ';
+               background-color: ' . esc_html( $this->highlight ) . ';
             }
 
             .nwx-rview-sum {
-               border-right: 2px solid ' . esc_html($this->highlight) . ';
-               border-bottom: 2px solid ' . esc_html($this->highlight) . ';
+               border-right: 2px solid ' . esc_html( $this->highlight ) . ';
+               border-bottom: 2px solid ' . esc_html( $this->highlight ) . ';
             }
 
             .nwx-total-score {
-                border-left: 2px solid ' . esc_html($this->highlight) . ';
-                border-bottom: 2px solid ' . esc_html($this->highlight) . ';
+                border-left: 2px solid ' . esc_html( $this->highlight ) . ';
+                border-bottom: 2px solid ' . esc_html( $this->highlight ) . ';
              }
 
              .nwxrview ul li {
@@ -72,9 +72,9 @@ class nwxrview_output {
 		$nwx_score = 0;
 		$nwxrview_calc_content = '';
 
-		foreach ($calcs as $nwx_attribs) {
+		foreach ( $calcs as $nwx_attribs ) {
 
-			if (!empty($nwx_attribs['name'])) {
+			if ( ! empty( $nwx_attribs['name'] ) ) {
 				// Dump scores down and make sure they don't go to 0 or above 10
 
 				if ($nwx_attribs['score'] / 10 < 1)
@@ -83,8 +83,8 @@ class nwxrview_output {
 				if ($nwx_attribs['score'] / 10 > 10)
 					$nwx_attribs['score'] = 100;
 
-				$nwxrview_calc_content .='<li>' . esc_html($nwx_attribs['name']) . " - " . esc_html($nwx_attribs['score']) / 10 . '
-                        <div class="nwxbar" style="width: ' . esc_html($nwx_attribs['score']) . '%;"> &nbsp </div>
+				$nwxrview_calc_content .= '<li>' . esc_html( $nwx_attribs['name'] ) . ' - ' . esc_html( $nwx_attribs['score'] ) / 10 . '
+                        <div class="nwxbar" style="width: ' . esc_html( $nwx_attribs['score'] ) . '%;"> &nbsp </div>
                         </li>';
 
 				$nwx_score += $nwx_attribs['score'];
@@ -94,67 +94,67 @@ class nwxrview_output {
 		}
 
 		$nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
-		$nwx_total_score = round($nwx_total_score * 2, 0) / 2;
+		$nwx_total_score = round( $nwx_total_score * 2, 0 ) / 2;
 
 		return array( apply_filters( 'nwxrview_attribs', $nwxrview_calc_content ), apply_filters( 'nwxrview_score_final', $nwx_total_score ) );
 
 
 	}
 
-	function shortcode ( $atts, $content = null ) {
+	function shortcode( $atts, $content = null ) {
 
 		return apply_filters( 'nwxrview_output', $this->nwxrview_content );
 
 	}
 
-	function output ( $content ) {
+	function output( $content ) {
 
 		global $post;
 
-		$this->review_sum = get_post_meta(get_the_id(), 'nwx-rview-sum', true);
+		$this->review_sum = get_post_meta( get_the_id(), 'nwx-rview-sum', true );
 		$this->nwxmeta = get_post_meta( get_the_id(), 'nwxrview', true );
 		$this->nwxrview_position = get_post_meta( get_the_id(), 'nwxrview-position', true );
 		$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 		$original = $content;
-		$this->nwxrview_content = '';
+		$this->nwxrview_content  = '';
 
-		if ( !empty($this->nwxmeta) && is_array($this->nwxmeta) && is_single() ) {
+		if ( ! empty( $this->nwxmeta ) && is_array( $this->nwxmeta ) && is_single() ) {
 
 			$this->nwxrview_content = '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
                         <h1>Review Scores</h1>
                     <div itemprop="author" itemscope itemtype"http://schema.org/Person">
-                        <span itemprop="name" style="display:none">' . esc_html(get_the_author_link()) . '</span>
+                        <span itemprop="name" style="display:none">' . esc_html( get_the_author_link() ) . '</span>
                     </div>
-                    <span itemprop="name" style="display:none">' . esc_html(get_the_title(get_the_id())) . '</span> <ul class="nwxrview_attribs">'
-			                     . $nwxrview_calc_data[0] . '</ul><div class="nwx-rview-sum">
-                        <div class="nwxrview_header" style="background: ' . esc_html($this->header_bg) . '; height: 30px; color: ' . esc_html($this->highlight) . ';">
+                    <span itemprop="name" style="display:none">' . esc_html( get_the_title( get_the_id() ) ) . '</span> <ul class="nwxrview_attribs">'
+			                          . $nwxrview_calc_data[0] . '</ul><div class="nwx-rview-sum">
+                        <div class="nwxrview_header" style="background: ' . esc_html( $this->header_bg ) . '; height: 30px; color: ' . esc_html( $this->highlight ) . ';">
                             <strong>Summary:</strong>
                         </div>
-                            <span itemprop="description">' . esc_html($this->review_sum) . '</span>
+                            <span itemprop="description">' . esc_html( $this->review_sum ) . '</span>
                     </div>
                     <div class="nwx-total-score">
-                        <div class="nwxrview_header" style="background: ' . esc_html($this->header_bg) . '; height: 30px; color: ' . esc_html($this->highlight) . '">
+                        <div class="nwxrview_header" style="background: ' . esc_html( $this->header_bg ) . '; height: 30px; color: ' . esc_html( $this->highlight ) . '">
                             <strong>Total Score:</strong>
                         </div>
-                        <h1><span itemprop="ratingValue">' . esc_html($nwxrview_calc_data[1]) . '</span></h1>
+                        <h1><span itemprop="ratingValue">' . esc_html( $nwxrview_calc_data[1] ) . '</span></h1>
                     </div>
                     </div>';
 
-                if ( $this->nwxrview_position == 'top' ){
+			if ( $this->nwxrview_position == 'top' ){
 
-                	$nwxrview_out = apply_filters( 'nwxrview_output', $this->nwxrview_content ) . $original;
+				$nwxrview_out = apply_filters( 'nwxrview_output', $this->nwxrview_content ) . $original;
 
-                } elseif ( $this->nwxrview_position == 'shortcode') {
+			} elseif ( $this->nwxrview_position == 'shortcode' ) {
 
-                	$nwxrview_out = $original;
+				$nwxrview_out = $original;
 
-                	add_shortcode( 'nwxrview_box', array( $this, 'shortcode' ) );
+				add_shortcode( 'nwxrview_box', array( $this, 'shortcode' ) );
 
-                } else {
+			} else {
 
-									$nwxrview_out = $original . apply_filters( 'nwxrview_output', $this->nwxrview_content );
+				$nwxrview_out = $original . apply_filters( 'nwxrview_output', $this->nwxrview_content );
 
-								}
+			}
 
 
 			return $nwxrview_out;
