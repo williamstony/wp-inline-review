@@ -12,7 +12,7 @@ add_action( 'load-post-new.php', 'nwxrview_meta_boxes_setup' );
 
 /* Meta box setup function. */
 /*--------------------*/
-function nwxrview_meta_boxes_setup () {
+function nwxrview_meta_boxes_setup() {
 
 	add_action( 'add_meta_boxes', 'nwxrview_add_meta_boxes' );
 	add_action( 'save_post', 'save_nwxrview_meta', 10, 2 );
@@ -23,7 +23,7 @@ function nwxrview_meta_boxes_setup () {
 /*------------------------------*/
 function nwxrview_add_meta_boxes() {
 
-	add_meta_box (
+	add_meta_box(
 		'nwxrview',                                 //Unique ID
 		esc_html__( 'Review Data', 'nwxrview' ),    //Title
 		'nwxrview_meta_box',                        //Callback function
@@ -47,12 +47,12 @@ function nwxrview_meta_box( $object, $box ) {
 	$nwxrview_utilities = new nwxrview_util(); ?>
 
 	<p>
-	<label for="nwxrview"><?php _e( "Add a review to this post", 'nwxrview' ); ?> </label>
+	<label for="nwxrview"><?php _e( 'Add a review to this post', 'nwxrview' ); ?> </label>
 	</p>
 	<p>
 
 	Review Box Position:  <select name="nwxrview-position">
-													<?php echo $nwxrview_utilities->select_build ($nwxrview_tmpvalue, $nwxrview_tmppos); ?>
+													<?php echo $nwxrview_utilities->select_build( $nwxrview_tmpvalue, $nwxrview_tmppos ); ?>
 												</select>
 	<br><strong>Note:</strong> If "Shortcode" is selected you will need to place "<strong>[nwxrview_box]</strong>"(without the quotes) in your post to display the review box.
 	</p>
