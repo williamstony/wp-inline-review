@@ -48,7 +48,7 @@ Initial Release
 == Changelog ==
 
 = 1.2.0 =
-* Moved output class to OO format
+* Moved output to class format
 * Restructured plugin files
 * More responsive work
 * Added support for "Use My Own Styles" setting to override embedded styles
