@@ -16,7 +16,7 @@ Version: 1.2.0
  *------------------------------*/
 
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 /*-----------------------------------------
@@ -28,16 +28,16 @@ if ( ! defined( 'WPINC' ) ) {
 register_activation_hook( __FILE__, 'nwxrview_defaults' );
 
 function nwxrview_defaults() {
-	$tmp = get_option( 'nwxrview_options' );
-	if ( ! is_array( $tmp ) ) {
-		$arr = array(
-			'highlight_color' => '#0f0',
-			'border_style'    => 'Dotted',
-			'header_bg'       => '#CCC',
-			'own_style'       => '0',
-		);
-		update_option( 'nwxrview_options', $arr );
-	}
+    $tmp = get_option( 'nwxrview_options' );
+    if ( ! is_array( $tmp ) ) {
+        $arr = array(
+            'highlight_color' => '#0f0',
+            'border_style'    => 'Dotted',
+            'header_bg'       => '#CCC',
+            'own_style'       => '',
+        );
+        update_option( 'nwxrview_options', $arr );
+    }
 }
 
 $admin_section = plugin_dir_path( __FILE__ ) . 'inc/admin-settings.php';
