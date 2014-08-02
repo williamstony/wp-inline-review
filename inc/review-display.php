@@ -61,7 +61,13 @@ class NwxrviewOutput {
              .nwxrview ul li {
                 list-style-type: none;
              }';
-
+             /*----------------------------------------------
+              * "nwxrview_css" can be used to modify the CSS
+              * embedded into the head of the document.
+              *
+              * The output will be wrapped in the style tags,
+              * outputting standard CSS is recmmended.
+              *---------------------------------------------*/
 		echo '<style type="text/css" media="screen">' . apply_filters( 'nwxrview_css', $nwxrview_css ) . '</style>';
 
 	}
@@ -143,6 +149,12 @@ class NwxrviewOutput {
 
 			// feels hackish. I don't like it. But it works.
 			if ( $this->nwxrview_position == 'top' ){
+
+				/*------------------------------------
+				 * The "nwxrview_output" filter allows
+				 * you to modify the actual output for
+				 * the review box
+				 *-----------------------------------*/
 
 				$nwxrview_out = apply_filters( 'nwxrview_output', $this->nwxrview_content ) . $original;
 
