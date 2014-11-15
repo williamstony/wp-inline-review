@@ -4,7 +4,7 @@ Plugin Name: Inline Review
 Plugin URI: http://tonyw.io/inline-review
 Description: A Review engine for WordPress
 Author: TonyW
-Version: 1.2.0
+Version: 1.2.5
 
 
 */
@@ -71,9 +71,9 @@ require_once( plugin_dir_path( __FILE__ ) . 'inc/add-review.php' );
  * Admin Stuff being included in
  *
  *---------------------------*/
-if(is_admin()) {
+if ( is_admin() ) {
 
-require_once( apply_filters( 'nwxrview_settings_page', $admin_section ) );
+    require_once( apply_filters( 'nwxrview_settings_page', $admin_section ) );
 
 }
 
