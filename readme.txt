@@ -6,7 +6,7 @@ Tags: reviews, review, products
 Author URI: http://tonyw.io
 Author: TonyW
 Requires at least: 3.6.0
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: 1.2.5
 Version: 1.2.5
 License: GPLv2 or later
