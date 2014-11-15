@@ -16,9 +16,9 @@
 
 **Tested up to:** 4.0
 
-**Stable tag:** 1.2.5
+**Stable tag:** 1.2.6
 
-**Version:** 1.2.5
+**Version:** 1.2.6
 
 **License:** GPLv2 or later
 
