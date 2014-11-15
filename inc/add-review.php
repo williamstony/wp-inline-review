@@ -40,11 +40,11 @@ function nwxrview_meta_box( $object, $box ) {
 	wp_nonce_field( basename( __FILE__ ), 'nwxrview_nonce' );
 
 	$nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true );
-	$nwxrview_tmpvalue = get_post_meta( get_the_id(), 'nwxrview-position', true );
+	$nwxrview_tmpvalue  = get_post_meta( get_the_id(), 'nwxrview-position', true );
 
 	$nwxrview_tmppos = array( 'bottom', 'top', 'shortcode' );
 
-	$nwxrview_utilities = new nwxrview_util(); ?>
+	$nwxrview_utilities = new nwxrviewUtil(); ?>
 
 	<p>
 	<label for="nwxrview"><?php _e( 'Add a review to this post', 'nwxrview' ); ?> </label>
@@ -82,7 +82,7 @@ function save_nwxrview_meta( $post_id, $post ) {
 
 	/* Verify noonce before proceeding */
 	/*----------------------------*/
-	if ( !isset( $_POST['nwxrview_nonce'] ) || !wp_verify_nonce( $_POST['nwxrview_nonce'], basename(__FILE__) ) ) {
+	if ( ! isset( $_POST['nwxrview_nonce'] ) || ! wp_verify_nonce( $_POST['nwxrview_nonce'], basename( __FILE__ ) ) ) {
 
 		return $post_id;
 	}
@@ -93,7 +93,7 @@ function save_nwxrview_meta( $post_id, $post ) {
 
 	/* Check if the current user has permission to edit the post */
 	/*-----------------------------------------------*/
-	if ( !current_user_can( $post_type->cap->edit_post, $post_id ) ) {
+	if ( ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 
 		return $post_id;
 	}

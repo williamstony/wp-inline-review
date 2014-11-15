@@ -71,9 +71,11 @@ require_once( plugin_dir_path( __FILE__ ) . 'inc/add-review.php' );
  * Admin Stuff being included in
  *
  *---------------------------*/
+if(is_admin()) {
 
 require_once( apply_filters( 'nwxrview_settings_page', $admin_section ) );
 
+}
 
 $test1 = new NwxrviewOutput();
 

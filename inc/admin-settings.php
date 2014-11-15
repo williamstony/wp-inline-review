@@ -54,10 +54,10 @@ function nwxrview_highlight_color() {
 function nwxrview_border_style() {
 	$options    = get_option( 'nwxrview_options' );
 	$nwx_styles = array( 'Solid', 'Dashed', 'Dotted', 'Hidden' );
-	$nwxrview_utilities = new nwxrview_util();
-	
+	$nwxrview_utilities = new nwxrviewUtil();
+
 	echo '<select id="style_select" class="nwxborder_style" name="nwxrview_options[border_style]" />';
-	echo $nwxrview_utilities->select_build ($options['border_style'], $nwx_styles);
+	echo $nwxrview_utilities->select_build( $options[ 'border_style' ], $nwx_styles );
 	echo '</select>';
 }
 
@@ -122,7 +122,7 @@ function nwxrview_options_validate( $input ) {
 	$input['header_bg']       = sanitize_text_field( $input['header_bg'] );
 	$input['border_style']    = sanitize_text_field( $input['border_style'] );
 	$input['highlight_color'] = sanitize_text_field( $input['highlight_color'] );
-	$input['own_style']       = sanitize_option( 'own_style', $input['own_style']);
+	$input['own_style']       = sanitize_option( 'own_style', $input['own_style'] );
 
 	return $input; //Validated
 }

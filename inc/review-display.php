@@ -1,9 +1,11 @@
 <?php
+
 /*------------------------------------------
  *
- * Ouput Class Build out
+ * Output Class Build out
  *
  *----------------------------------------*/
+
 class NwxrviewOutput {
 
 	public $options, $nwxmeta;
@@ -25,7 +27,7 @@ class NwxrviewOutput {
 
 	function frontstyles() {
 
-		wp_register_style( 'nwxrview',  plugins_url( 'css/nwxrviewstyle.min.css', dirname( __FILE__ ) ) );
+		wp_register_style( 'nwxrview', plugins_url( 'css/nwxrviewstyle.min.css', dirname( __FILE__ ) ) );
 		wp_enqueue_style( 'nwxrview' );
 	}
 
@@ -61,21 +63,21 @@ class NwxrviewOutput {
              .nwxrview ul li {
                 list-style-type: none;
              }';
-             /*----------------------------------------------
-              * "nwxrview_css" can be used to modify the CSS
-              * embedded into the head of the document.
-              *
-              * The output will be wrapped in the style tags,
-              * outputting standard CSS is recmmended.
-              *---------------------------------------------*/
+		/*----------------------------------------------
+		  * "nwxrview_css" can be used to modify the CSS
+		  * embedded into the head of the document.
+		  *
+		  * The output will be wrapped in the style tags,
+		  * outputting standard CSS is recommended.
+		  *---------------------------------------------*/
 		echo '<style type="text/css" media="screen">' . apply_filters( 'nwxrview_css', $nwxrview_css ) . '</style>';
 
 	}
 
 	function calc( $calcs ) {
 
-		$nwx_total_calc = 0;
-		$nwx_score = 0;
+		$nwx_total_calc        = 0;
+		$nwx_score             = 0;
 		$nwxrview_calc_content = '';
 
 		foreach ( $calcs as $nwx_attribs ) {
@@ -83,26 +85,31 @@ class NwxrviewOutput {
 			if ( ! empty( $nwx_attribs['name'] ) ) {
 				// Dump scores down and make sure they don't go to 0 or above 10
 
-				if ($nwx_attribs['score'] / 10 < 1)
+				if ( $nwx_attribs['score'] / 10 < 1 ) {
 					$nwx_attribs['score'] = 10;
+				}
 
-				if ($nwx_attribs['score'] / 10 > 10)
+				if ( $nwx_attribs['score'] / 10 > 10 ) {
 					$nwx_attribs['score'] = 100;
+				}
 
 				$nwxrview_calc_content .= '<li>' . esc_html( $nwx_attribs['name'] ) . ' - ' . esc_html( $nwx_attribs['score'] ) / 10 . '
                         <div class="nwxbar" style="width: ' . esc_html( $nwx_attribs['score'] ) . '%;"> &nbsp </div>
                         </li>';
 
 				$nwx_score += $nwx_attribs['score'];
-				$nwx_total_calc++;
+				$nwx_total_calc ++;
 
 			}
 		}
 
-		$nwx_total_score = ($nwx_score / $nwx_total_calc) / 10;
+		$nwx_total_score = ( $nwx_score / $nwx_total_calc ) / 10;
 		$nwx_total_score = round( $nwx_total_score * 2, 0 ) / 2;
 
-		return array( apply_filters( 'nwxrview_attribs', $nwxrview_calc_content ), apply_filters( 'nwxrview_score_final', $nwx_total_score ) );
+		return array(
+			apply_filters( 'nwxrview_attribs', $nwxrview_calc_content ),
+			apply_filters( 'nwxrview_score_final', $nwx_total_score )
+		);
 
 
 	}
@@ -117,38 +124,32 @@ class NwxrviewOutput {
 
 		global $post;
 
-		$this->review_sum = get_post_meta( get_the_id(), 'nwx-rview-sum', true );
-		$this->nwxmeta = get_post_meta( get_the_id(), 'nwxrview', true );
+		$this->review_sum        = get_post_meta( get_the_id(), 'nwx-rview-sum', true );
+		$this->nwxmeta           = get_post_meta( get_the_id(), 'nwxrview', true );
 		$this->nwxrview_position = get_post_meta( get_the_id(), 'nwxrview-position', true );
-		$original = $content;
+		$original                = $content;
 		$this->nwxrview_content  = '';
 
 		if ( ! empty( $this->nwxmeta[1]['name'] ) && is_array( $this->nwxmeta ) /*&& is_single()*/ ) {
 
 			$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 
-			$this->nwxrview_content = '<div class="nwxrview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+			$this->nwxrview_content = '<div class="nwxrview">
                         <h1>Review Scores</h1>
-                    <div itemprop="author" itemscope itemtype"http://schema.org/Person">
-                        <span itemprop="name" style="display:none">' . esc_html( get_the_author_link() ) . '</span>
-                    </div>
-                    <span itemprop="name" style="display:none">' . esc_html( get_the_title( get_the_id() ) ) . '</span> <ul class="nwxrview_attribs">'
-			                          . $nwxrview_calc_data[0] . '</ul><div class="nwx-rview-sum">
+						<ul class="nwxrview_attribs">' . $nwxrview_calc_data[0] . '</ul><div class="nwx-rview-sum">
                         <div class="nwxrview_header" style="background: ' . esc_html( $this->header_bg ) . '; height: 30px; color: ' . esc_html( $this->highlight ) . ';">
                             <strong>Summary:</strong>
-                        </div>
-                            <span itemprop="description">' . esc_html( $this->review_sum ) . '</span>
-                    </div>
+                        </div>' . esc_html( $this->review_sum ) . '</div>
                     <div class="nwx-total-score">
                         <div class="nwxrview_header" style="background: ' . esc_html( $this->header_bg ) . '; height: 30px; color: ' . esc_html( $this->highlight ) . '">
                             <strong>Total Score:</strong>
                         </div>
-                        <h1><span itemprop="ratingValue">' . esc_html( $nwxrview_calc_data[1] ) . '</span></h1>
+                        <h1>' . esc_html( $nwxrview_calc_data[1] ) . '</h1>
                     </div>
                     </div>';
 
 			// feels hackish. I don't like it. But it works.
-			if ( $this->nwxrview_position == 'top' ){
+			if ( $this->nwxrview_position == 'top' ) {
 
 				/*------------------------------------
 				 * The "nwxrview_output" filter allows
