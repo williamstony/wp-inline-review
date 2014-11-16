@@ -20,7 +20,7 @@ class NwxrviewUtil {
   *----------------------------------*/
   public function select_build( $compare, $opt_value ) {
 
-    $opt_form = '';
+  $opt_form = '';
 
     foreach ( $opt_value as $value ) {
       $selection = ( $compare == $value ) ? 'selected="selected"' : ' ';

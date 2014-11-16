@@ -60,7 +60,7 @@ function nwxrview_meta_box( $object, $box ) {
 
 	Summary: <textarea class="widefat" type="text" name="nwx-rview-sum" id="nwxrview_summary" value="" size="50" ><?php echo htmlentities( get_post_meta( get_the_id(), 'nwx-rview-sum', true ) );  ?></textarea>
 
-	<?php for ( $w=1; $w <= 10; $w++ ){ ?>
+	<?php for ( $w = 1; $w <= 10; $w++ ){ ?>
 
 		<b>Attribute <?php echo $w; ?>:</b><input type="text" name="nwxrview[<?php echo $w; ?>][name]" id="nwxrview-<?php echo $w; ?>" value="<?php if( !empty( $nwxrview_meta_data[$w]['name'] )) echo esc_html_e( $nwxrview_meta_data[$w]['name'], 'nwxrview' ); ?>" size="20" />
 

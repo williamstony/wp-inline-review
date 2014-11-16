@@ -108,7 +108,7 @@ class NwxrviewOutput {
 
 		return array(
 			apply_filters( 'nwxrview_attribs', $nwxrview_calc_content ),
-			apply_filters( 'nwxrview_score_final', $nwx_total_score )
+			apply_filters( 'nwxrview_score_final', $nwx_total_score ),
 		);
 
 

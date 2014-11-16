@@ -113,7 +113,7 @@ function nwxrview_page_gen() {
 			});
 
 	</script>
-<?php
+ <?php
 }
 
 /*Validate everything before saving*/
