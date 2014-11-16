@@ -42,7 +42,7 @@ function nwxrview_meta_box( $object, $box ) {
 	$nwxrview_meta_data = get_post_meta( get_the_id(), 'nwxrview', true );
 	$nwxrview_tmpvalue  = get_post_meta( get_the_id(), 'nwxrview-position', true );
 
-	$nwxrview_tmppos = array( 'bottom', 'top', 'shortcode' );
+	$nwxrview_tmppos = array( 'bottom', 'top' );
 
 	$nwxrview_utilities = new nwxrviewUtil(); ?>
 
