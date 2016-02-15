@@ -135,7 +135,7 @@ class NwxrviewOutput {
 			$nwxrview_calc_data = $this->calc( $this->nwxmeta );
 
 			$this->nwxrview_content = '<div class="nwxrview">
-                        <h1>Review Scores</h1>
+                        <div class="nwxrview-title">Review Scores</div>
 						<ul class="nwxrview_attribs">' . $nwxrview_calc_data[0] . '</ul><div class="nwx-rview-sum">
                         <div class="nwxrview_header" style="background: ' . esc_html( $this->header_bg ) . '; height: 30px; color: ' . esc_html( $this->highlight ) . ';">
                             <strong>Summary:</strong>
@@ -144,7 +144,7 @@ class NwxrviewOutput {
                         <div class="nwxrview_header" style="background: ' . esc_html( $this->header_bg ) . '; height: 30px; color: ' . esc_html( $this->highlight ) . '">
                             <strong>Total Score:</strong>
                         </div>
-                        <h1>' . esc_html( $nwxrview_calc_data[1] ) . '</h1>
+                        <div class="nwxrview-total">' . esc_html( $nwxrview_calc_data[1] ) . '</div>
                     </div>
                     </div>';
 
